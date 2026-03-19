@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Expert IA — Monétise l'intelligence artificielle</title>
+<meta name="description" content="Monétise l'intelligence artificielle. Avant tout le monde.">
+<meta property="og:title" content="L'Expert IA">
+<meta property="og:description" content="Monétise l'intelligence artificielle. Avant tout le monde.">
+<meta property="og:type" content="website">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+  :root{
+    --bg:#f8f7f4;
+    --text:#1a1a1a;
+    --muted:#6b6b6b;
+    --border:#e2e0db;
+    --accent:#1a1a1a;
+    --telegram:#2AABEE;
+    --radius:14px;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.04);
+    --shadow-md:0 4px 16px rgba(0,0,0,.06);
+    --shadow-lg:0 8px 32px rgba(0,0,0,.10);
+    --transition:cubic-bezier(.4,0,.2,1);
+  }
+
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100dvh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:24px 16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .container{
+    width:100%;
+    max-width:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:32px;
+  }
+
+  /* ---- AVATAR ---- */
+  .avatar-wrapper{
+    position:relative;
+    width:96px;
+    height:96px;
+  }
+
+  .avatar{
+    width:96px;
+    height:96px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#e0ddd7 0%,#d0cdc6 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border:3px solid #fff;
+    box-shadow:var(--shadow-md);
+  }
+
+  .avatar svg{
+    width:48px;
+    height:48px;
+    opacity:.35;
+  }
+
+  .avatar-pulse{
+    position:absolute;
+    inset:-4px;
+    border-radius:50%;
+    border:2px solid var(--telegram);
+    opacity:0;
+    animation:pulse-ring 2.8s var(--transition) infinite;
+  }
+
+  @keyframes pulse-ring{
+    0%{transform:scale(.95);opacity:.6}
+    70%{transform:scale(1.15);opacity:0}
+    100%{transform:scale(1.15);opacity:0}
+  }
+
+  /* ---- IDENTITY ---- */
+  .identity{text-align:center}
+
+  .name{
+    font-size:1.5rem;
+    font-weight:700;
+    letter-spacing:-.02em;
+    line-height:1.2;
+  }
+
+  .tagline{
+    margin-top:6px;
+    font-size:.875rem;
+    color:var(--muted);
+    font-weight:400;
+    letter-spacing:.01em;
+  }
+
+  /* ---- LINKS ---- */
+  .links{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  /* ---- BUTTON BASE ---- */
+  .link-btn{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:16px 20px;
+    border:1.5px solid var(--border);
+    border-radius:var(--radius);
+    background:#fff;
+    color:var(--text);
+    font-size:.9375rem;
+    font-weight:500;
+    text-decoration:none;
+    cursor:pointer;
+    transition:all .25s var(--transition);
+    box-shadow:var(--shadow-sm);
+    overflow:hidden;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .link-btn::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:var(--fill,var(--accent));
+    transform:scaleY(0);
+    transform-origin:bottom;
+    transition:transform .35s var(--transition);
+    border-radius:var(--radius);
+    z-index:0;
+  }
+
+  .link-btn:hover::before{
+    transform:scaleY(1);
+  }
+
+  .link-btn:hover{
+    color:#fff;
+    border-color:transparent;
+    box-shadow:var(--shadow-lg);
+    transform:translateY(-2px);
+  }
+
+  .link-btn:active{
+    transform:translateY(0) scale(.98);
+    transition:transform .1s;
+  }
+
+  .link-btn svg,.link-btn span{
+    position:relative;
+    z-index:1;
+    transition:color .25s var(--transition);
+  }
+
+  .link-btn .icon{
+    width:20px;
+    height:20px;
+    flex-shrink:0;
+  }
+
+  /* ---- TELEGRAM — DOMINANT ---- */
+  .link-btn.telegram{
+    --fill:#2AABEE;
+    background:var(--telegram);
+    color:#fff;
+    border-color:var(--telegram);
+    padding:20px 24px;
+    font-size:1.0625rem;
+    font-weight:600;
+    box-shadow:0 4px 20px rgba(42,171,238,.25);
+  }
+
+  .link-btn.telegram::before{
+    background:linear-gradient(180deg,#1e9ad9 0%,#1a8ac2 100%);
+  }
+
+  .link-btn.telegram:hover{
+    box-shadow:0 8px 32px rgba(42,171,238,.35);
+    color:#fff;
+  }
+
+  .link-btn.telegram .icon{
+    width:22px;
+    height:22px;
+  }
+
+  /* ---- YOUTUBE ---- */
+  .link-btn.youtube{--fill:#FF0000}
+  .link-btn.youtube:hover{color:#fff}
+
+  /* ---- COMING SOON ---- */
+  .link-btn.soon{
+    cursor:default;
+    opacity:.55;
+    border-style:dashed;
+  }
+
+  .link-btn.soon::before{display:none}
+  .link-btn.soon:hover{
+    transform:none;
+    color:var(--text);
+    box-shadow:var(--shadow-sm);
+    border-color:var(--border);
+  }
+
+  .badge{
+    font-size:.625rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    background:var(--bg);
+    color:var(--muted);
+    padding:3px 8px;
+    border-radius:6px;
+    margin-left:auto;
+  }
+
+  .soon-sub{
+    text-align:center;
+    font-size:.75rem;
+    color:var(--muted);
+    font-style:italic;
+    margin-top:-6px;
+    opacity:.7;
+  }
+
+  /* ---- MODAL OVERLAY ---- */
+  .modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(26,26,26,.3);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    z-index:100;
+    opacity:0;
+    visibility:hidden;
+    transition:all .3s var(--transition);
+  }
+
+  .modal-overlay.active{
+    opacity:1;
+    visibility:visible;
+  }
+
+  .modal{
+    background:#fff;
+    border-radius:20px;
+    padding:40px 32px 32px;
+    width:100%;
+    max-width:380px;
+    box-shadow:0 24px 64px rgba(0,0,0,.12);
+    transform:translateY(20px) scale(.96);
+    transition:transform .35s var(--transition);
+    text-align:center;
+  }
+
+  .modal-overlay.active .modal{
+    transform:translateY(0) scale(1);
+  }
+
+  .modal-close{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:32px;
+    height:32px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    transition:background .2s;
+  }
+
+  .modal-close:hover{background:var(--bg)}
+
+  .modal-title{
+    font-size:1.375rem;
+    font-weight:700;
+    letter-spacing:-.02em;
+    margin-bottom:8px;
+  }
+
+  .modal-desc{
+    font-size:.8125rem;
+    color:var(--muted);
+    margin-bottom:24px;
+    line-height:1.5;
+  }
+
+  .modal-form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .modal-input{
+    width:100%;
+    padding:14px 16px;
+    border:1.5px solid var(--border);
+    border-radius:12px;
+    font-size:.9375rem;
+    font-family:inherit;
+    background:var(--bg);
+    color:var(--text);
+    outline:none;
+    transition:border-color .2s,box-shadow .2s;
+  }
+
+  .modal-input:focus{
+    border-color:var(--telegram);
+    box-shadow:0 0 0 3px rgba(42,171,238,.12);
+  }
+
+  .modal-input::placeholder{color:#aaa}
+
+  .modal-submit{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:var(--telegram);
+    color:#fff;
+    font-size:.9375rem;
+    font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+    transition:all .25s var(--transition);
+    box-shadow:0 2px 12px rgba(42,171,238,.2);
+  }
+
+  .modal-submit:hover{
+    background:#1e9ad9;
+    box-shadow:0 4px 20px rgba(42,171,238,.35);
+    transform:translateY(-1px);
+  }
+
+  .modal-submit:active{
+    transform:scale(.97);
+  }
+
+  .modal-submit.success{
+    background:#22c55e;
+    pointer-events:none;
+  }
+
+  .modal-bypass{
+    margin-top:8px;
+    font-size:.75rem;
+    color:var(--muted);
+    text-decoration:none;
+    opacity:.6;
+    transition:opacity .2s;
+    cursor:pointer;
+    background:none;
+    border:none;
+    font-family:inherit;
+  }
+
+  .modal-bypass:hover{
+    opacity:1;
+    text-decoration:underline;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer{
+    text-align:center;
+    font-size:.6875rem;
+    color:var(--muted);
+    opacity:.5;
+    letter-spacing:.02em;
+  }
+
+  /* ---- RIPPLE ---- */
+  .ripple{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.3);
+    transform:scale(0);
+    animation:ripple-anim .5s ease-out forwards;
+    pointer-events:none;
+    z-index:1;
+  }
+
+  @keyframes ripple-anim{
+    to{transform:scale(2.5);opacity:0}
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media(min-width:480px){
+    .container{gap:36px}
+    .avatar-wrapper{width:108px;height:108px}
+    .avatar{width:108px;height:108px}
+    .name{font-size:1.625rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- AVATAR -->
+  <div class="avatar-wrapper">
+    <div class="avatar-pulse"></div>
+    <div class="avatar">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+    </div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity">
+    <h1 class="name">L'Expert IA</h1>
+    <p class="tagline">Monétise l'intelligence artificielle. Avant tout le monde.</p>
+  </div>
+
+  <!-- LINKS -->
+  <div class="links">
+
+    <!-- TELEGRAM — DOMINANT -->
+    <button class="link-btn telegram" id="telegramBtn" type="button">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      <span>Rejoindre le Telegram</span>
+    </button>
+
+    <!-- YOUTUBE -->
+    <a class="link-btn youtube" href="https://m.youtube.com/@AIGlobalFilms26" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      <span>YouTube</span>
+    </a>
+
+    <!-- SITE — COMING SOON -->
+    <div class="link-btn soon">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <span>Site web</span>
+      <span class="badge">Coming soon</span>
+    </div>
+    <p class="soon-sub">The future is being built…</p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <p class="footer">© 2026 L'Expert IA</p>
+
+</div>
+
+<!-- EMAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Fermer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h2 class="modal-title">Entre dans le cercle.</h2>
+    <p class="modal-desc">Laisse ton email pour recevoir les stratégies IA<br>avant qu'elles deviennent mainstream.</p>
+    <form class="modal-form" id="emailForm">
+      <input class="modal-input" type="email" id="emailInput" placeholder="ton@email.com" required autocomplete="email">
+      <button class="modal-submit" type="submit" id="submitBtn">Accéder au Telegram →</button>
+    </form>
+    <button class="modal-bypass" id="bypassBtn" type="button">Accéder directement sans email</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const TELEGRAM_URL = 'https://t.me/lexpertIA';
+  const overlay = document.getElementById('modalOverlay');
+  const emailForm = document.getElementById('emailForm');
+  const emailInput = document.getElementById('emailInput');
+  const submitBtn = document.getElementById('submitBtn');
+  const telegramBtn = document.getElementById('telegramBtn');
+  const modalClose = document.getElementById('modalClose');
+  const bypassBtn = document.getElementById('bypassBtn');
+
+  function openModal(){
+    overlay.classList.add('active');
+    setTimeout(()=> emailInput.focus(), 350);
+  }
+
+  function closeModal(){
+    overlay.classList.remove('active');
+  }
+
+  function goToTelegram(){
+    window.open(TELEGRAM_URL, '_blank', 'noopener');
+  }
+
+  // Open modal on Telegram click
+  telegramBtn.addEventListener('click', function(e){
+    ripple(e, this);
+    openModal();
+  });
+
+  // Close modal
+  modalClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+
+  // Bypass — go direct
+  bypassBtn.addEventListener('click', function(){
+    closeModal();
+    goToTelegram();
+  });
+
+  // Submit email
+  emailForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    if(!email) return;
+
+    submitBtn.textContent = 'Envoi…';
+    submitBtn.disabled = true;
+
+    // Log email (webhook placeholder)
+    console.log('[L\'Expert IA] Email collecté:', email);
+
+    // TODO: Replace with Make.com / Google Sheet webhook
+    // fetch('YOUR_WEBHOOK_URL', {
+    //   method: 'POST',
+    //   headers: {'Content-Type':'application/json'},
+    //   body: JSON.stringify({ email, date: new Date().toISOString() })
+    // });
+
+    setTimeout(function(){
+      submitBtn.textContent = '✓ C\'est bon !';
+      submitBtn.classList.add('success');
+      setTimeout(function(){
+        closeModal();
+        goToTelegram();
+        // Reset
+        setTimeout(function(){
+          emailInput.value = '';
+          submitBtn.textContent = 'Accéder au Telegram →';
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('success');
+        }, 500);
+      }, 800);
+    }, 400);
+  });
+
+  // Ripple effect on clickable buttons
+  document.querySelectorAll('.link-btn:not(.soon)').forEach(function(btn){
+    btn.addEventListener('click', function(e){ ripple(e, this); });
+  });
+
+  function ripple(e, el){
+    const rect = el.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const r = document.createElement('span');
+    r.className = 'ripple';
+    r.style.width = r.style.height = size + 'px';
+    r.style.left = (e.clientX - rect.left - size/2) + 'px';
+    r.style.top = (e.clientY - rect.top - size/2) + 'px';
+    el.appendChild(r);
+    r.addEventListener('animationend', function(){ r.remove(); });
+  }
+})();
+</script>
+
+</body>
+</html>
