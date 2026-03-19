@@ -13,6 +13,7 @@
 
   :root{
     --bg:#f8f7f4;
+    --bg-glass:rgba(255,255,255,.72);
     --text:#1a1a1a;
     --muted:#6b6b6b;
     --border:#e2e0db;
@@ -33,29 +34,52 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:24px 16px;
+    padding:40px 16px;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ---- 3D CANVAS BG ---- */
+  #bgCanvas{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
   }
 
   .container{
+    position:relative;
+    z-index:1;
     width:100%;
-    max-width:420px;
+    max-width:440px;
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:32px;
+    gap:28px;
+  }
+
+  /* ---- STAGGER ENTRANCE ---- */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s var(--transition), transform .6s var(--transition);
+  }
+  .reveal.visible{
+    opacity:1;
+    transform:translateY(0);
   }
 
   /* ---- AVATAR ---- */
   .avatar-wrapper{
     position:relative;
-    width:96px;
-    height:96px;
+    width:100px;
+    height:100px;
   }
 
   .avatar{
-    width:96px;
-    height:96px;
+    width:100px;
+    height:100px;
     border-radius:50%;
     background:linear-gradient(135deg,#e0ddd7 0%,#d0cdc6 100%);
     display:flex;
@@ -105,6 +129,166 @@
     letter-spacing:.01em;
   }
 
+  /* ---- SOCIAL PROOF BAR ---- */
+  .proof-bar{
+    display:flex;
+    gap:0;
+    width:100%;
+    background:var(--bg-glass);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:var(--shadow-sm);
+  }
+
+  .proof-item{
+    flex:1;
+    text-align:center;
+    padding:14px 8px;
+    position:relative;
+  }
+
+  .proof-item+.proof-item::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:20%;
+    height:60%;
+    width:1px;
+    background:var(--border);
+  }
+
+  .proof-number{
+    font-size:1.25rem;
+    font-weight:700;
+    letter-spacing:-.02em;
+    color:var(--text);
+    line-height:1;
+  }
+
+  .proof-label{
+    font-size:.625rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    margin-top:4px;
+    font-weight:500;
+  }
+
+  /* ---- SERVICES ---- */
+  .services{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .services-title{
+    font-size:.6875rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--muted);
+    text-align:center;
+    margin-bottom:2px;
+  }
+
+  .service-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    padding:16px 18px;
+    background:var(--bg-glass);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    transition:all .3s var(--transition);
+    cursor:default;
+    box-shadow:var(--shadow-sm);
+  }
+
+  .service-card:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-md);
+    border-color:rgba(42,171,238,.25);
+  }
+
+  .service-icon{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .service-icon svg{
+    width:20px;
+    height:20px;
+  }
+
+  .service-icon.formation{
+    background:linear-gradient(135deg,#dbeafe,#bfdbfe);
+    color:#2563eb;
+  }
+
+  .service-icon.automation{
+    background:linear-gradient(135deg,#d1fae5,#a7f3d0);
+    color:#059669;
+  }
+
+  .service-icon.consulting{
+    background:linear-gradient(135deg,#ede9fe,#ddd6fe);
+    color:#7c3aed;
+  }
+
+  .service-info{display:flex;flex-direction:column;gap:2px}
+
+  .service-name{
+    font-size:.875rem;
+    font-weight:600;
+    color:var(--text);
+  }
+
+  .service-desc{
+    font-size:.75rem;
+    color:var(--muted);
+    line-height:1.4;
+  }
+
+  .service-tag{
+    margin-left:auto;
+    font-size:.5625rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    padding:3px 7px;
+    border-radius:5px;
+    flex-shrink:0;
+  }
+
+  .service-tag.pop{
+    background:rgba(42,171,238,.1);
+    color:var(--telegram);
+  }
+
+  .service-tag.new{
+    background:rgba(5,150,105,.1);
+    color:#059669;
+  }
+
+  /* ---- DIVIDER ---- */
+  .divider{
+    width:40px;
+    height:1px;
+    background:var(--border);
+  }
+
   /* ---- LINKS ---- */
   .links{
     width:100%;
@@ -124,7 +308,9 @@
     padding:16px 20px;
     border:1.5px solid var(--border);
     border-radius:var(--radius);
-    background:#fff;
+    background:var(--bg-glass);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     color:var(--text);
     font-size:.9375rem;
     font-weight:500;
@@ -187,6 +373,7 @@
     font-size:1.0625rem;
     font-weight:600;
     box-shadow:0 4px 20px rgba(42,171,238,.25);
+    backdrop-filter:none;
   }
 
   .link-btn.telegram::before{
@@ -203,6 +390,32 @@
     height:22px;
   }
 
+  .telegram-sub{
+    text-align:center;
+    font-size:.6875rem;
+    color:var(--muted);
+    margin-top:-6px;
+    opacity:.7;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+  }
+
+  .live-dot{
+    width:6px;
+    height:6px;
+    background:#22c55e;
+    border-radius:50%;
+    display:inline-block;
+    animation:blink 1.5s infinite;
+  }
+
+  @keyframes blink{
+    0%,100%{opacity:1}
+    50%{opacity:.3}
+  }
+
   /* ---- YOUTUBE ---- */
   .link-btn.youtube{--fill:#FF0000}
   .link-btn.youtube:hover{color:#fff}
@@ -212,6 +425,7 @@
     cursor:default;
     opacity:.55;
     border-style:dashed;
+    backdrop-filter:none;
   }
 
   .link-btn.soon::before{display:none}
@@ -248,8 +462,8 @@
     position:fixed;
     inset:0;
     background:rgba(26,26,26,.3);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -275,6 +489,7 @@
     transform:translateY(20px) scale(.96);
     transition:transform .35s var(--transition);
     text-align:center;
+    position:relative;
   }
 
   .modal-overlay.active .modal{
@@ -299,6 +514,23 @@
   }
 
   .modal-close:hover{background:var(--bg)}
+
+  .modal-icon{
+    width:48px;
+    height:48px;
+    background:linear-gradient(135deg,rgba(42,171,238,.1),rgba(42,171,238,.2));
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 16px;
+  }
+
+  .modal-icon svg{
+    width:22px;
+    height:22px;
+    color:var(--telegram);
+  }
 
   .modal-title{
     font-size:1.375rem;
@@ -414,19 +646,30 @@
 
   /* ---- RESPONSIVE ---- */
   @media(min-width:480px){
-    .container{gap:36px}
-    .avatar-wrapper{width:108px;height:108px}
-    .avatar{width:108px;height:108px}
+    .container{gap:32px}
+    .avatar-wrapper{width:110px;height:110px}
+    .avatar{width:110px;height:110px}
     .name{font-size:1.625rem}
+    .proof-number{font-size:1.375rem}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .reveal{transition:none;opacity:1;transform:none}
+    .avatar-pulse{animation:none}
+    .live-dot{animation:none}
+    #bgCanvas{display:none}
   }
 </style>
 </head>
 <body>
 
+<!-- 3D PARTICLE BACKGROUND -->
+<canvas id="bgCanvas"></canvas>
+
 <div class="container">
 
   <!-- AVATAR -->
-  <div class="avatar-wrapper">
+  <div class="avatar-wrapper reveal">
     <div class="avatar-pulse"></div>
     <div class="avatar">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
@@ -434,19 +677,75 @@
   </div>
 
   <!-- IDENTITY -->
-  <div class="identity">
+  <div class="identity reveal">
     <h1 class="name">L'Expert IA</h1>
     <p class="tagline">Monétise l'intelligence artificielle. Avant tout le monde.</p>
   </div>
 
+  <!-- SOCIAL PROOF BAR -->
+  <div class="proof-bar reveal">
+    <div class="proof-item">
+      <div class="proof-number" data-target="2400">0</div>
+      <div class="proof-label">Membres</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-number" data-target="150">0</div>
+      <div class="proof-label">Vidéos</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-number" data-target="35">0</div>
+      <div class="proof-label">Outils IA</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="services reveal">
+    <p class="services-title">Services</p>
+
+    <div class="service-card">
+      <div class="service-icon formation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div class="service-info">
+        <span class="service-name">Formation IA</span>
+        <span class="service-desc">Apprends à utiliser l'IA pour générer des revenus</span>
+      </div>
+      <span class="service-tag pop">Populaire</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon automation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="service-info">
+        <span class="service-name">Automatisation</span>
+        <span class="service-desc">Bots, workflows, agents IA clé en main</span>
+      </div>
+      <span class="service-tag new">Nouveau</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon consulting">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="service-info">
+        <span class="service-name">Consulting</span>
+        <span class="service-desc">Stratégie IA personnalisée pour ton business</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider reveal"></div>
+
   <!-- LINKS -->
-  <div class="links">
+  <div class="links reveal">
 
     <!-- TELEGRAM — DOMINANT -->
     <button class="link-btn telegram" id="telegramBtn" type="button">
       <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
       <span>Rejoindre le Telegram</span>
     </button>
+    <p class="telegram-sub"><span class="live-dot"></span> Communauté active — accès gratuit</p>
 
     <!-- YOUTUBE -->
     <a class="link-btn youtube" href="https://m.youtube.com/@AIGlobalFilms26" target="_blank" rel="noopener">
@@ -465,16 +764,19 @@
   </div>
 
   <!-- FOOTER -->
-  <p class="footer">© 2026 L'Expert IA</p>
+  <p class="footer reveal">© 2026 L'Expert IA</p>
 
 </div>
 
 <!-- EMAIL MODAL -->
 <div class="modal-overlay" id="modalOverlay">
-  <div class="modal" style="position:relative">
+  <div class="modal">
     <button class="modal-close" id="modalClose" type="button" aria-label="Fermer">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
     <h2 class="modal-title">Entre dans le cercle.</h2>
     <p class="modal-desc">Laisse ton email pour recevoir les stratégies IA<br>avant qu'elles deviennent mainstream.</p>
     <form class="modal-form" id="emailForm">
@@ -487,6 +789,153 @@
 
 <script>
 (function(){
+  /* ---- 3D PARTICLE MESH BACKGROUND ---- */
+  const canvas = document.getElementById('bgCanvas');
+  const ctx = canvas.getContext('2d');
+  let w, h, particles = [], mouse = {x:-1000, y:-1000};
+  const PARTICLE_COUNT = 45;
+  const CONNECT_DIST = 140;
+  const MOUSE_DIST = 180;
+
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  function createParticles(){
+    particles = [];
+    for(let i = 0; i < PARTICLE_COUNT; i++){
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - .5) * .4,
+        vy: (Math.random() - .5) * .4,
+        r: Math.random() * 2 + 1
+      });
+    }
+  }
+
+  function drawParticles(){
+    ctx.clearRect(0, 0, w, h);
+
+    // Connections
+    for(let i = 0; i < particles.length; i++){
+      for(let j = i + 1; j < particles.length; j++){
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < CONNECT_DIST){
+          const alpha = (1 - dist / CONNECT_DIST) * .08;
+          ctx.strokeStyle = 'rgba(42,171,238,' + alpha + ')';
+          ctx.lineWidth = .5;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+
+      // Mouse connection
+      const mdx = particles[i].x - mouse.x;
+      const mdy = particles[i].y - mouse.y;
+      const mdist = Math.sqrt(mdx*mdx + mdy*mdy);
+      if(mdist < MOUSE_DIST){
+        const alpha = (1 - mdist / MOUSE_DIST) * .15;
+        ctx.strokeStyle = 'rgba(42,171,238,' + alpha + ')';
+        ctx.lineWidth = .8;
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+      }
+    }
+
+    // Particles
+    for(let i = 0; i < particles.length; i++){
+      const p = particles[i];
+      ctx.fillStyle = 'rgba(42,171,238,.15)';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if(p.x < 0 || p.x > w) p.vx *= -1;
+      if(p.y < 0 || p.y > h) p.vy *= -1;
+    }
+
+    requestAnimationFrame(drawParticles);
+  }
+
+  window.addEventListener('resize', function(){
+    resize();
+    createParticles();
+  });
+
+  document.addEventListener('mousemove', function(e){
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  document.addEventListener('mouseleave', function(){
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
+  resize();
+  createParticles();
+  drawParticles();
+
+  /* ---- STAGGER REVEAL ---- */
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(function(el, i){
+    setTimeout(function(){
+      el.classList.add('visible');
+    }, 120 + i * 120);
+  });
+
+  /* ---- COUNTER ANIMATION ---- */
+  const counters = document.querySelectorAll('[data-target]');
+  let counted = false;
+
+  function animateCounters(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      const target = parseInt(el.getAttribute('data-target'));
+      const duration = 1800;
+      const start = performance.now();
+
+      function update(now){
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(ease * target);
+
+        if(target >= 1000){
+          el.textContent = (current / 1000).toFixed(1).replace('.0','') + 'k+';
+        } else {
+          el.textContent = current + '+';
+        }
+
+        if(progress < 1) requestAnimationFrame(update);
+      }
+
+      requestAnimationFrame(update);
+    });
+  }
+
+  // Trigger counters when proof bar is visible
+  const proofBar = document.querySelector('.proof-bar');
+  if(proofBar){
+    const obs = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting) animateCounters();
+    }, {threshold: .5});
+    obs.observe(proofBar);
+  }
+
+  /* ---- TELEGRAM MODAL ---- */
   const TELEGRAM_URL = 'https://t.me/lexpertIA';
   const overlay = document.getElementById('modalOverlay');
   const emailForm = document.getElementById('emailForm');
@@ -498,7 +947,7 @@
 
   function openModal(){
     overlay.classList.add('active');
-    setTimeout(()=> emailInput.focus(), 350);
+    setTimeout(function(){ emailInput.focus(); }, 350);
   }
 
   function closeModal(){
@@ -509,13 +958,11 @@
     window.open(TELEGRAM_URL, '_blank', 'noopener');
   }
 
-  // Open modal on Telegram click
   telegramBtn.addEventListener('click', function(e){
     ripple(e, this);
     openModal();
   });
 
-  // Close modal
   modalClose.addEventListener('click', closeModal);
   overlay.addEventListener('click', function(e){
     if(e.target === overlay) closeModal();
@@ -524,41 +971,37 @@
     if(e.key === 'Escape') closeModal();
   });
 
-  // Bypass — go direct
   bypassBtn.addEventListener('click', function(){
     closeModal();
     goToTelegram();
   });
 
-  // Submit email
   emailForm.addEventListener('submit', function(e){
     e.preventDefault();
-    const email = emailInput.value.trim();
+    var email = emailInput.value.trim();
     if(!email) return;
 
     submitBtn.textContent = 'Envoi…';
     submitBtn.disabled = true;
 
-    // Log email (webhook placeholder)
     console.log('[L\'Expert IA] Email collecté:', email);
 
     // TODO: Replace with Make.com / Google Sheet webhook
     // fetch('YOUR_WEBHOOK_URL', {
     //   method: 'POST',
     //   headers: {'Content-Type':'application/json'},
-    //   body: JSON.stringify({ email, date: new Date().toISOString() })
+    //   body: JSON.stringify({ email: email, date: new Date().toISOString() })
     // });
 
     setTimeout(function(){
-      submitBtn.textContent = '✓ C\'est bon !';
+      submitBtn.textContent = '\u2713 C\'est bon !';
       submitBtn.classList.add('success');
       setTimeout(function(){
         closeModal();
         goToTelegram();
-        // Reset
         setTimeout(function(){
           emailInput.value = '';
-          submitBtn.textContent = 'Accéder au Telegram →';
+          submitBtn.textContent = 'Accéder au Telegram \u2192';
           submitBtn.disabled = false;
           submitBtn.classList.remove('success');
         }, 500);
@@ -566,15 +1009,15 @@
     }, 400);
   });
 
-  // Ripple effect on clickable buttons
+  /* ---- RIPPLE ---- */
   document.querySelectorAll('.link-btn:not(.soon)').forEach(function(btn){
     btn.addEventListener('click', function(e){ ripple(e, this); });
   });
 
   function ripple(e, el){
-    const rect = el.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const r = document.createElement('span');
+    var rect = el.getBoundingClientRect();
+    var size = Math.max(rect.width, rect.height);
+    var r = document.createElement('span');
     r.className = 'ripple';
     r.style.width = r.style.height = size + 'px';
     r.style.left = (e.clientX - rect.left - size/2) + 'px';
@@ -582,6 +1025,7 @@
     el.appendChild(r);
     r.addEventListener('animationend', function(){ r.remove(); });
   }
+
 })();
 </script>
 
