@@ -191,13 +191,6 @@
   .modal-submit:active{transform:scale(.97)}
   .modal-submit.success{background:#22c55e;box-shadow:0 2px 16px rgba(34,197,94,.3);pointer-events:none}
 
-  .modal-divider{display:flex;align-items:center;gap:10px;margin:8px 0 2px}
-  .modal-divider::before,.modal-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05)}
-  .modal-divider span{font-size:.5625rem;color:rgba(255,255,255,.18);text-transform:uppercase;letter-spacing:.08em}
-
-  .modal-bypass{font-size:.625rem;color:var(--muted);opacity:.45;transition:opacity .2s;cursor:pointer;background:none;border:none;font-family:inherit;padding:4px}
-  .modal-bypass:hover{opacity:.85;text-decoration:underline}
-
   .modal-trust{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.04)}
   .modal-trust span{font-size:.5rem;color:rgba(255,255,255,.18);display:flex;align-items:center;gap:3px}
   .modal-trust svg{width:9px;height:9px;opacity:.35}
@@ -438,9 +431,6 @@
         <button class="modal-submit" type="submit" id="submitBtn">Entrer dans le cercle →</button>
       </form>
 
-      <div class="modal-divider"><span>ou</span></div>
-      <button class="modal-bypass" id="bypassBtn" type="button">Continuer sans email</button>
-
       <div class="modal-trust">
         <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg> Données protégées</span>
         <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> 0 spam</span>
@@ -587,7 +577,6 @@
   var telegramBtn=document.getElementById('telegramBtn');
   var journalBtn=document.getElementById('journalBtn');
   var modalClose=document.getElementById('modalClose');
-  var bypassBtn=document.getElementById('bypassBtn');
   var stickyBtn=document.getElementById('stickyBtn');
 
   function setModalContent(m){
@@ -618,8 +607,6 @@
   modalClose.addEventListener('click',closeModal);
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
-  bypassBtn.addEventListener('click',function(){closeModal();if(currentModal.redirect)goTG()});
-
   emailForm.addEventListener('submit',function(e){
     e.preventDefault();
     var email=emailInput.value.trim();
