@@ -52,51 +52,10 @@
       overflow-x: hidden;
     }
 
-    /* ════ TOP BANNER ════ */
-    .top-banner {
-      background: var(--bg-elevated);
-      border-bottom: 1px solid var(--border);
-      padding: 0.6rem 1rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    .top-banner span { color: var(--gold); font-weight: 600; }
-    .top-timer {
-      font-variant-numeric: tabular-nums;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-left: 0.35rem;
-    }
-
-    /* ════ TICKER ════ */
-    .ticker-wrap {
-      background: linear-gradient(135deg, rgba(212,168,83,0.06), transparent);
-      border-bottom: 1px solid rgba(212,168,83,0.08);
-      overflow: hidden;
-      padding: 0.55rem 0;
-    }
-    .ticker-track {
-      display: flex;
-      gap: 4rem;
-      animation: ticker 40s linear infinite;
-      white-space: nowrap;
-      width: max-content;
-    }
-    .ticker-track:hover { animation-play-state: paused; }
-    @keyframes ticker {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .ticker-item {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      letter-spacing: 0.02em;
-    }
+    /* Banners and tickers removed for clean premium look */
+    .top-banner, .ticker-wrap { display: none !important; }
     .ticker-item::before {
-      content: '⚡';
-      margin-right: 0.5rem;
+      content: '';
       color: var(--gold);
     }
 
@@ -867,33 +826,7 @@
 <body>
 
   <!-- ════ TOP BANNER ════ -->
-  <div class="top-banner">
-    Offre limitée — <span>places restreintes</span> · Fermeture dans
-    <span class="top-timer" id="timer">00:00:00</span>
-  </div>
-
-  <!-- ════ AI TIPS TICKER ════ -->
-  <div class="ticker-wrap">
-    <div class="ticker-track" id="tickerTrack">
-      <span class="ticker-item">ChatGPT + Canva + Notion = un business complet lancé en 48h.</span>
-      <span class="ticker-item">Un seul agent IA bien configuré remplace 3h de travail répétitif par jour.</span>
-      <span class="ticker-item">Les freelances IA facturent en moyenne 2x plus que les freelances classiques.</span>
-      <span class="ticker-item">85% des entreprises du CAC 40 intègrent l'IA d'ici 2027. Positionne-toi maintenant.</span>
-      <span class="ticker-item">Un prompt bien écrit sur ChatGPT peut générer un service à 300€ en moins d'1h.</span>
-      <span class="ticker-item">Les agents IA travaillent 24h/24 — toi tu encaisses pendant que tu dors.</span>
-      <span class="ticker-item">La niche la plus rentable en 2026 : vendre de l'automatisation IA aux PME françaises.</span>
-      <span class="ticker-item">ChatGPT + Make + Stripe = un business digital qui tourne seul.</span>
-      <!-- duplicate for seamless loop -->
-      <span class="ticker-item">ChatGPT + Canva + Notion = un business complet lancé en 48h.</span>
-      <span class="ticker-item">Un seul agent IA bien configuré remplace 3h de travail répétitif par jour.</span>
-      <span class="ticker-item">Les freelances IA facturent en moyenne 2x plus que les freelances classiques.</span>
-      <span class="ticker-item">85% des entreprises du CAC 40 intègrent l'IA d'ici 2027. Positionne-toi maintenant.</span>
-      <span class="ticker-item">Un prompt bien écrit sur ChatGPT peut générer un service à 300€ en moins d'1h.</span>
-      <span class="ticker-item">Les agents IA travaillent 24h/24 — toi tu encaisses pendant que tu dors.</span>
-      <span class="ticker-item">La niche la plus rentable en 2026 : vendre de l'automatisation IA aux PME françaises.</span>
-      <span class="ticker-item">ChatGPT + Make + Stripe = un business digital qui tourne seul.</span>
-    </div>
-  </div>
+  <!-- Clean entry - no banners, no tickers, straight to content -->
 
   <!-- ════ NAV ════ -->
   <nav>
@@ -920,7 +853,7 @@
         </div>
       </div>
 
-      <div class="hero-badge">&#127775; La 1ère formation IA de monétisation francophone</div>
+      <div class="hero-badge">Formation IA & Monétisation</div>
 
       <h1>Maîtrisez l'IA.<br><span class="gold">Monétisez votre expertise.</span></h1>
       <p class="hero-sub">Formation complète, outils premium, agent IA de trading prédictif et communauté privée. Tout ce qu'il faut pour transformer l'intelligence artificielle en revenus réels.</p>
@@ -1297,29 +1230,12 @@
     <span class="sticky-label hide-mobile">Académie Experts IA</span>
     <span class="sticky-price">297€</span>
     <a href="checkout.html" class="btn btn-gold btn-sm">Rejoindre →</a>
-    <span class="guarantee-inline hide-mobile">🛡️ 30j garanti</span>
+    <span class="guarantee-inline hide-mobile"></span>
   </div>
 
   <!-- ════ SCRIPTS ════ -->
   <script>
-    /* ── Countdown to next Sunday 23:59 (weekly urgency) ── */
-    function updateTimer() {
-      const now = new Date();
-      const nextSunday = new Date(now);
-      const dayOfWeek = now.getDay();
-      const daysUntilSunday = (7 - dayOfWeek) % 7 || 7;
-      nextSunday.setDate(now.getDate() + daysUntilSunday);
-      nextSunday.setHours(23, 59, 0, 0);
-      const diff = nextSunday - now;
-      if (diff <= 0) { updateTimer(); return; }
-      const d = Math.floor(diff / 86400000);
-      const h = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
-      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
-      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-      document.getElementById('timer').textContent = (d > 0 ? d + 'j ' : '') + h + ':' + m + ':' + s;
-    }
-    updateTimer();
-    setInterval(updateTimer, 1000);
+    /* Timer removed - clean premium look */
 
     /* ── Sticky bar ── */
     const stickyBar = document.getElementById('stickyBar');
