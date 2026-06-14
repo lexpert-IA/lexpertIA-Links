@@ -49,25 +49,19 @@
 
     .offers{width:100%;max-width:var(--maxw);display:flex;flex-direction:column;gap:16px}
     /* cartes "pass premium" : coins biseautés + projecteur qui suit le curseur (contour + intérieur) */
-    .card{position:relative;isolation:isolate;background:#0c0d15;padding:25px 22px;transition:box-shadow .4s,transform .4s;
-      clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px)}
+    /* cartes = vrais cadres métalliques embossés (9-slice) → look premium "pass" */
+    .card{position:relative;isolation:isolate;background:#0b0c14;padding:30px 28px;border-radius:26px;
+      border:17px solid transparent;border-image:var(--frame) 92 stretch;
+      box-shadow:0 22px 60px rgba(0,0,0,.5);transition:transform .4s,box-shadow .4s}
     .card>*{position:relative;z-index:1}
-    /* contour : filet constant très discret + halo accent qui s'allume sous le curseur */
-    .card::before{content:'';position:absolute;inset:-1px;z-index:-1;
-      clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);
-      background:radial-gradient(240px circle at var(--mx,50%) var(--my,-40%), var(--beam), transparent 62%),
-        linear-gradient(rgba(255,255,255,.085),rgba(255,255,255,.045));
-      opacity:.62;transition:opacity .45s}
-    .card:hover::before{opacity:1}
-    /* lueur intérieure douce sous le curseur */
-    .card::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-      clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);
-      background:radial-gradient(440px circle at var(--mx,50%) var(--my,-40%), color-mix(in srgb,var(--beam) 12%, transparent), transparent 55%);
+    /* lueur intérieure douce qui suit le curseur (premium, subtil) */
+    .card::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:14px;
+      background:radial-gradient(460px circle at var(--mx,50%) var(--my,-40%), color-mix(in srgb,var(--beam) 14%, transparent), transparent 55%);
       opacity:0;transition:opacity .45s}
     .card:hover::after{opacity:1}
-    .card:hover{transform:translateY(-2px);box-shadow:0 26px 60px rgba(0,0,0,.45)}
-    .gold{--beam:#e8c97a}
-    .expert{--beam:#dc7a7d;cursor:pointer}
+    .card:hover{transform:translateY(-3px);box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 50px -16px var(--beam)}
+    .gold{--beam:#e8c97a;--frame:url('assets/ui-card-frame-gold.png')}
+    .expert{--beam:#dc7a7d;cursor:pointer;--frame:url('assets/ui-card-frame-crimson.png')}
 
     .c-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
     .c-name{font-family:var(--display);font-size:23px;font-weight:600;letter-spacing:-.01em;line-height:1.12;color:#fff;font-optical-sizing:auto}
