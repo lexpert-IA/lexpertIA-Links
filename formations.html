@@ -22,11 +22,17 @@
       padding:0 18px calc(46px + env(safe-area-inset-bottom));letter-spacing:-.005em}
     body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;transition:background .7s ease;
       background:radial-gradient(72% 42% at 50% -8%, rgba(220,193,135,.09), transparent 60%)}
-    body[data-focus="expert"]::before{background:radial-gradient(72% 42% at 50% 108%, rgba(220,122,125,.11), transparent 60%)}
+    body[data-uni="raccourci"]::before{background:radial-gradient(74% 46% at 50% -8%, rgba(232,201,122,.17), transparent 60%)}
+    body[data-uni="expert"]::before{background:radial-gradient(74% 52% at 50% 108%, rgba(220,80,85,.18), transparent 60%)}
 
-    /* background image généré (sobre) + scrim pour la lisibilité */
-    .bgimg{position:fixed;inset:0;z-index:-3;background:url('assets/bg-accueil-web.jpg') center/cover no-repeat;opacity:.5}
-    .scrim{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(7,8,13,.55),rgba(7,8,13,.84))}
+    /* 3 univers superposés (crossfade au survol) + scrim pour la lisibilité */
+    .uni{position:fixed;inset:0;z-index:-3;background:center/cover no-repeat;opacity:0;transition:opacity .85s ease;pointer-events:none}
+    .uni-accueil{background-image:url('assets/bg-accueil-web.jpg');opacity:.5}
+    .uni-raccourci{background-image:url('assets/bg-raccourci-web.jpg')}
+    .uni-expert{background-image:url('assets/bg-expert-web.jpg')}
+    body[data-uni="raccourci"] .uni-accueil{opacity:0} body[data-uni="raccourci"] .uni-raccourci{opacity:.62}
+    body[data-uni="expert"] .uni-accueil{opacity:0} body[data-uni="expert"] .uni-expert{opacity:.6}
+    .scrim{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(7,8,13,.5),rgba(7,8,13,.82))}
     /* masthead — pastille verre centrée, emblème + wordmark + Telegram côte à côte */
     .masthead{display:inline-flex;align-items:center;gap:12px;margin:calc(22px + env(safe-area-inset-top)) 0 6px;
       padding:7px 7px 7px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);
@@ -165,6 +171,30 @@
     .vault button{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:11px;color:var(--muted);font-family:var(--sans);font-size:13px;font-weight:600;padding:12px 16px;cursor:pointer;transition:.2s}
     .vault button:hover{color:var(--ink);border-color:rgba(220,122,125,.4)}
     .vault .err{color:var(--crim);font-size:11px;margin-top:10px;height:0;opacity:0;transition:opacity .25s} .vault .err.show{opacity:1;height:auto}
+    .masthead .emblem{cursor:pointer}
+    /* ===== ARG : chasse au code caché « Protocole Oracle » ===== */
+    .argpixel{position:fixed;left:9px;bottom:9px;width:5px;height:5px;border-radius:50%;background:#ff5a5a;
+      box-shadow:0 0 6px #ff5a5a;opacity:.2;cursor:pointer;z-index:55;animation:argblink 4.5s ease-in-out infinite}
+    @keyframes argblink{0%,90%,100%{opacity:.16}95%{opacity:.8}}
+    .argterm{position:fixed;left:50%;bottom:14px;transform:translate(-50%,150%);z-index:70;width:min(440px,92vw);
+      font-family:'JetBrains Mono',monospace;background:rgba(6,8,12,.93);backdrop-filter:blur(12px);
+      border:1px solid rgba(220,122,125,.4);border-radius:14px;padding:14px 16px;box-shadow:0 22px 54px rgba(0,0,0,.65);
+      transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+    .argterm.on{transform:translate(-50%,0)}
+    .argterm .h{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#ff7a7a;margin-bottom:9px;display:flex;justify-content:space-between}
+    .argterm .line{font-size:11.5px;line-height:1.65;color:#bfe9d6;min-height:32px}
+    .argterm .frag{color:#46e29b;font-weight:700}
+    .argterm .beta{color:#ff9b9b}
+    .argterm .prog{display:flex;gap:6px;margin:11px 0 2px}
+    .argterm .prog i{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.1);transition:background .3s}
+    .argterm .prog i.f{background:#46e29b;box-shadow:0 0 8px #46e29b}
+    .argterm .unlock{display:none;margin-top:11px;width:100%;text-align:center;text-decoration:none;font-weight:700;font-size:13px;
+      color:#04121a;background:linear-gradient(135deg,#bfefff,#2fd6ff);padding:12px;border-radius:10px}
+    .argterm.done .unlock{display:block;animation:argpulse 1.6s ease-in-out infinite}
+    @keyframes argpulse{50%{filter:brightness(1.18)}}
+    .argterm .close{cursor:pointer;color:var(--dim)}
+    body.glitch{animation:glitch .12s steps(2) 5}
+    @keyframes glitch{25%{transform:translate(2px,-1px)}50%{transform:translate(-2px,1px)}75%{transform:translate(1px,2px)}}
     .foot{margin-top:32px;color:var(--dim);font-size:11px;text-align:center}
     .foot a{color:var(--muted);text-decoration:none}
     .rise{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
@@ -174,7 +204,7 @@
   </style>
 </head>
 <body>
-  <div class="bgimg"></div><div class="scrim"></div>
+  <div class="uni uni-accueil"></div><div class="uni uni-raccourci"></div><div class="uni uni-expert"></div><div class="scrim"></div>
   <div class="masthead">
     <span class="emblem" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5l2 6.6 6.6 2-6.6 2-2 6.4-2-6.4-6.6-2 6.6-2z"/></svg>
@@ -334,7 +364,7 @@
       var expert=document.querySelector('.card.expert');
       document.querySelectorAll('.card').forEach(function(c){
         c.addEventListener('mouseenter', function(){
-          if(c.getAttribute('data-card')==='expert') body.setAttribute('data-focus','expert'); else body.removeAttribute('data-focus');
+          body.setAttribute('data-uni', c.getAttribute('data-card')==='expert' ? 'expert' : 'raccourci');
         });
         // projecteur qui suit le curseur
         c.addEventListener('pointermove', function(e){
@@ -346,15 +376,14 @@
           c.style.removeProperty('--mx'); c.style.removeProperty('--my');
         });
       });
-      document.querySelector('.offers').addEventListener('mouseleave', function(){ body.removeAttribute('data-focus'); });
+      document.querySelector('.offers').addEventListener('mouseleave', function(){ body.removeAttribute('data-uni'); });
 
       // tactile / clavier : révéler le programme expert (sans bloquer Accéder ni le contact)
       if(!fine){
         expert.addEventListener('click', function(e){
           if(e.target.closest('.buy')||e.target.closest('.contact-toggle')||e.target.closest('.contact-form')) return;
           var open=expert.classList.toggle('open');
-          body.setAttribute('data-focus', open?'expert':'');
-          if(!open) body.removeAttribute('data-focus');
+          if(open) body.setAttribute('data-uni','expert'); else body.removeAttribute('data-uni');
         });
       }
       expert.addEventListener('keydown', function(e){ if((e.key==='Enter'||e.key===' ')&&e.target===expert){ e.preventDefault(); expert.classList.toggle('open'); } });
@@ -392,6 +421,54 @@
         if(h===CODE_HASH){ location.href = encodeURIComponent(code) + '.html'; }
         else { err.classList.add('show'); input.value=''; input.focus(); }
       });
+    })();
+  </script>
+
+  <!-- ARG : chasse au code caché « Protocole Oracle » -->
+  <span class="argpixel" id="argpixel" aria-hidden="true"></span>
+  <div class="argterm" id="argterm" role="status">
+    <div class="h"><span>// protocole oracle</span><span><span id="argcount">0 / 3</span> &nbsp;<span class="close" id="argclose">✕</span></span></div>
+    <div class="line" id="arglog">&gt; signal anormal détecté sur cette page…</div>
+    <div class="prog"><i id="ap1"></i><i id="ap2"></i><i id="ap3"></i></div>
+    <a class="unlock" id="argunlock" href="hft2026.html">▣ DÉVERROUILLER LE VAULT →</a>
+  </div>
+
+  <script>
+    (function(){
+      var frags={k:false,e:false,p:false};
+      var term=document.getElementById('argterm'),log=document.getElementById('arglog'),
+          cnt=document.getElementById('argcount'),pixel=document.getElementById('argpixel'),
+          emblem=document.querySelector('.masthead .emblem'),eClicks=0;
+      document.getElementById('argclose').addEventListener('click',function(){term.classList.remove('on');});
+      function show(){term.classList.add('on');}
+      function say(h){show();log.innerHTML=h;}
+      function frag(id,code,msg){
+        if(frags[id])return; frags[id]=true;
+        document.getElementById(id==='k'?'ap1':id==='e'?'ap2':'ap3').classList.add('f');
+        var n=[frags.k,frags.e,frags.p].filter(Boolean).length;
+        cnt.textContent=n+' / 3';
+        say('&gt; <span class="frag">FRAGMENT '+n+'/3 : '+code+'</span><br>&gt; <span class="beta">BETA — '+msg+'</span>');
+        if(n===3) setTimeout(done,900);
+      }
+      function done(){
+        term.classList.add('done');
+        say('&gt; reconstitution… <span class="frag">CODE : HFT2026</span><br>&gt; <span class="beta">BETA — bon. t\'es pas si bête, finalement. entre.</span>');
+        cnt.textContent='3 / 3 ✓';
+        var inp=document.getElementById('vault-code'); if(inp) inp.value='HFT2026';
+      }
+      // 1) Konami ↑↑↓↓←→←→ B A
+      var seq=[38,38,40,40,37,39,37,39,66,65],pos=0;
+      addEventListener('keydown',function(e){
+        pos=(e.keyCode===seq[pos])?pos+1:(e.keyCode===seq[0]?1:0);
+        if(pos===seq.length){pos=0;document.body.classList.add('glitch');setTimeout(function(){document.body.classList.remove('glitch');},620);
+          frag('k','HF','le code Konami ? tellement prévisible. tiens, ton lot de consolation.');}
+      });
+      // 2) emblème cliqué 5×
+      if(emblem)emblem.addEventListener('click',function(){eClicks++;
+        if(eClicks===3)say('&gt; <span class="beta">BETA — tu comptes t\'arrêter ? l\'emblème surchauffe.</span>');
+        if(eClicks>=5)frag('e','T2','voilà, tu m\'as fondu l\'emblème. j\'espère que t\'es fier.');});
+      // 3) pixel caché (bas-gauche)
+      if(pixel)pixel.addEventListener('click',function(){frag('p','026','LE pixel. 5px sur 1568. t\'as vraiment cherché. respect (un peu).');});
     })();
   </script>
 </body>
