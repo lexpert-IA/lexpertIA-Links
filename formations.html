@@ -68,6 +68,14 @@
     .c-sub{color:var(--muted);font-size:12.5px;margin-top:6px;line-height:1.45;max-width:33ch}
     /* prix : monochrome, sobre */
     .price{flex:0 0 auto;text-align:right;white-space:nowrap}
+    /* médaillon bonus (zone droite) */
+    .seal{margin:16px 0 0 auto;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;
+      width:138px;padding:13px 12px;border-radius:15px;white-space:normal;
+      border:1px solid color-mix(in srgb,var(--beam) 50%,transparent);
+      background:color-mix(in srgb,var(--beam) 11%,transparent);box-shadow:inset 0 0 22px color-mix(in srgb,var(--beam) 9%,transparent)}
+    .seal .si{font-size:20px;line-height:1}
+    .seal .sn{font-family:var(--display);font-weight:600;font-size:15px;color:#fff;line-height:1.1;margin-top:2px}
+    .seal .sl{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.3}
     .price .now{font-family:var(--display);font-weight:600;font-size:27px;line-height:1;color:var(--ink)}
     .price .old{display:block;font-family:var(--sans);font-size:12.5px;color:var(--dim);text-decoration:line-through;text-decoration-thickness:1px;margin-top:5px}
     .price .unit{display:block;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:6px}
@@ -193,7 +201,9 @@
           <div class="c-name">Le Raccourci — Tout-en-1</div>
           <div class="c-sub">Créer, automatiser et monétiser avec l'IA — même en partant de zéro.</div>
         </div>
-        <div class="price"><span class="now">88€</span><span class="old">147€</span><span class="unit">accès à vie</span></div>
+        <div class="price"><span class="now">88€</span><span class="old">147€</span><span class="unit">accès à vie</span>
+          <div class="seal"><span class="si">🎬</span><span class="sn">30h</span><span class="sl">de cours vidéo</span></div>
+        </div>
       </div>
 
       <ul class="list">
@@ -237,7 +247,9 @@
           <div class="c-name">L'IA au niveau expert</div>
           <div class="c-sub">Bâtir tes propres systèmes IA — pas seulement les utiliser.</div>
         </div>
-        <div class="price"><span class="now">998€</span><span class="unit">premium</span></div>
+        <div class="price"><span class="now">998€</span><span class="unit">premium</span>
+          <div class="seal"><span class="si">📈</span><span class="sn">Jusqu'à rentabilité</span><span class="sl">accompagnement continu</span></div>
+        </div>
       </div>
 
       <div class="seats" aria-label="Places d'accompagnement restantes : 2 sur 10">
