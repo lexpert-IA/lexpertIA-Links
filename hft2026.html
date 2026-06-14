@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <title>ACCÈS DÉBLOQUÉ — Oracle HFT</title>
+  <meta name="theme-color" content="#05070f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#05070f;--cyan:#2fd6ff;--vio:#8b6cff;--blue:#3b82f6;--ink:#eaf2ff;--muted:#8b93ad;--dim:#525a76;--ok:#46e29b;--mono:'JetBrains Mono',monospace;--disp:'Space Grotesk',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--ink);font-family:var(--disp);min-height:100dvh;overflow-x:hidden;position:relative;
+      display:flex;flex-direction:column;align-items:center;padding:0 18px calc(46px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+    /* fond sombre + lumineux : nappes qui respirent + grille qui défile */
+    body::before{content:'';position:fixed;inset:-30%;z-index:-3;filter:blur(30px);
+      background:radial-gradient(40% 30% at 25% 18%, rgba(47,214,255,.22), transparent 60%),
+        radial-gradient(45% 32% at 80% 30%, rgba(139,108,255,.22), transparent 62%),
+        radial-gradient(50% 40% at 50% 105%, rgba(59,130,246,.20), transparent 60%);animation:breathe 9s ease-in-out infinite}
+    @keyframes breathe{0%,100%{opacity:.8;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+    body::after{content:'';position:fixed;inset:0;z-index:-2;opacity:.5;
+      background-image:linear-gradient(rgba(47,214,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(47,214,255,.07) 1px,transparent 1px);
+      background-size:48px 48px;mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 80%);animation:scroll 7s linear infinite}
+    @keyframes scroll{to{background-position:0 48px,48px 0}}
+    #fx{position:fixed;inset:0;z-index:5;pointer-events:none}
+
+    .wrap{width:100%;max-width:680px;position:relative;z-index:3;padding-top:calc(40px + env(safe-area-inset-top))}
+
+    /* coeur robot */
+    .core{width:96px;height:96px;margin:6px auto 26px;position:relative}
+    .core .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(47,214,255,.5);box-shadow:0 0 40px rgba(47,214,255,.35),inset 0 0 30px rgba(139,108,255,.25)}
+    .core .ring.r2{inset:14px;border-color:rgba(139,108,255,.5);animation:spin 8s linear infinite}
+    .core .ring.r3{inset:30px;border-color:rgba(59,130,246,.6);animation:spin 5s linear infinite reverse}
+    .core .dot{position:absolute;inset:42px;border-radius:50%;background:radial-gradient(circle,#bfefff,#2fd6ff 60%,#8b6cff);box-shadow:0 0 26px var(--cyan);animation:pulse 2.2s ease-in-out infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes pulse{0%,100%{transform:scale(.9);opacity:.85}50%{transform:scale(1.08);opacity:1}}
+
+    .badge{display:flex;justify-content:center}
+    .badge span{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ok);
+      border:1px solid rgba(70,226,155,.35);border-radius:999px;padding:7px 15px;display:inline-flex;align-items:center;gap:9px;background:rgba(70,226,155,.06)}
+    .badge .d{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok);animation:pulse 1.5s ease-in-out infinite}
+
+    h1{text-align:center;font-family:var(--disp);font-weight:700;font-size:clamp(30px,8.5vw,52px);letter-spacing:-.03em;line-height:1.02;margin:22px 0 0}
+    h1 .g{background:linear-gradient(100deg,var(--cyan),var(--vio),var(--blue),var(--cyan));background-size:240% 100%;
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shim 6s linear infinite}
+    @keyframes shim{to{background-position:240% 0}}
+    .sub{text-align:center;color:var(--muted);font-size:14.5px;line-height:1.55;margin:16px auto 0;max-width:46ch}
+    .sub b{color:var(--ink);font-weight:600}
+
+    /* panneau technique */
+    .panel{margin-top:30px;border:1px solid rgba(47,214,255,.16);border-radius:18px;padding:22px;
+      background:linear-gradient(180deg,rgba(47,214,255,.05),rgba(139,108,255,.03));backdrop-filter:blur(8px)}
+    .panel .pt{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+    .panel .pt::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(47,214,255,.3),transparent)}
+    .specs{list-style:none;display:flex;flex-direction:column;gap:14px}
+    .specs li{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:#d4ddf2}
+    .specs .k{flex:0 0 auto;width:20px;height:20px;border-radius:6px;display:grid;place-items:center;margin-top:1px;
+      background:rgba(47,214,255,.12);color:var(--cyan);font-family:var(--mono);font-size:10px;font-weight:700}
+    .specs b{color:#fff;font-weight:600}
+    .specs .v{color:var(--vio);font-family:var(--mono);font-weight:500}
+
+    .metrics{display:flex;gap:10px;margin-top:18px}
+    .metrics .m{flex:1;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:13px 8px;text-align:center;background:rgba(255,255,255,.02)}
+    .metrics .m .n{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--cyan)}
+    .metrics .m .l{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+
+    .myst{margin-top:16px;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--dim);text-align:center}
+    .myst .w{color:var(--vio)}
+    /* BETA — assistant LLM privé */
+    .beta{font-family:var(--disp);font-weight:700;letter-spacing:.02em;background:linear-gradient(100deg,#ffffff,#ffd6d6 35%,#ff4d4d);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .betarow{margin-top:18px;display:flex;gap:13px;align-items:flex-start;padding:16px;border-radius:14px;
+      border:1px solid rgba(255,90,90,.28);background:linear-gradient(120deg,rgba(255,90,90,.10),rgba(255,255,255,.03))}
+    .betarow .bk{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+      background:linear-gradient(140deg,#fff,#ff4d4d);color:#1a0405;box-shadow:0 0 22px rgba(255,77,77,.45)}
+    .betarow .bk svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .betarow .bt{font-size:14px;line-height:1.5;color:#e9d9da}
+    .betarow .bt .lab{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#ff8a8a;display:block;margin-bottom:4px}
+    .betarow .bt b{color:#fff;font-weight:600}
+
+    /* CTA unique */
+    .cta{margin-top:34px;display:flex;justify-content:center}
+    .reward{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;text-decoration:none;
+      font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.01em;color:#04121a;
+      padding:20px 34px;border-radius:16px;background:linear-gradient(135deg,#bfefff,#2fd6ff 45%,#8b6cff);
+      box-shadow:0 0 0 1px rgba(255,255,255,.2),0 20px 50px rgba(47,214,255,.4),0 0 80px rgba(139,108,255,.3);
+      animation:float 3.5s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    .reward:hover{filter:brightness(1.06)}
+    .reward::after{content:'';position:absolute;top:0;left:-60%;width:45%;height:100%;transform:skewX(-20deg);
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:sweep 3s ease-in-out infinite}
+    @keyframes sweep{0%{left:-60%}55%,100%{left:140%}}
+    .reward svg{width:20px;height:20px}
+    .free{text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:14px;letter-spacing:.06em}
+    .free b{color:var(--ok)}
+    .back{display:block;text-align:center;margin-top:26px;font-family:var(--mono);font-size:11px;color:var(--dim);text-decoration:none}
+    .back:hover{color:var(--muted)}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+</head>
+<body>
+  <canvas id="fx"></canvas>
+  <main class="wrap">
+    <div class="core"><span class="ring"></span><span class="ring r2"></span><span class="ring r3"></span><span class="dot"></span></div>
+
+    <div class="badge"><span><span class="d"></span>Accès débloqué · code vérifié</span></div>
+    <h1>Tu viens de débloquer<br><span class="g">l'Oracle.</span></h1>
+    <p class="sub">Un <b>bot de placement automatique sur Polymarket</b> — <b>arbitrage</b> &amp; <b>HFT</b>. Pas une promesse : l'infrastructure réelle qui capture l'inefficience du marché, à ta place, en continu.</p>
+
+    <section class="panel">
+      <div class="pt">// Ce qui tourne derrière</div>
+      <ul class="specs">
+        <li><span class="k">01</span><span><b>Flux WebSocket temps réel</b> sur le <b>CLOB</b> de Polymarket (Central Limit Order Book) — lecture du carnet à la milliseconde.</span></li>
+        <li><span class="k">02</span><span><b>Capture de spread</b> : détection des marchés où <span class="v">YES + NO &lt; 1,00 $</span> → profit verrouillé quelle que soit l'issue.</span></li>
+        <li><span class="k">03</span><span><b>Exécution sub-seconde</b> : ordres <b>FOK</b> (Fill-Or-Kill) pré-armés + <b>grille de limites</b> pour rafler la liquidité avant les autres.</span></li>
+        <li><span class="k">04</span><span><b>Double silo symétrique</b> — couverture des deux côtés du marché, exposition neutralisée.</span></li>
+        <li><span class="k">05</span><span><b>Moteur de risque</b> : sizing borné (martingale contrôlée <span class="v">M=1.7 · N=7</span>), stop global, idempotence des ordres.</span></li>
+        <li><span class="k">06</span><span><b>Règlement on-chain</b> Polygon / USDC, RPC dédiés &amp; reconnexion auto — infra basse latence non-stop.</span></li>
+      </ul>
+
+      <div class="metrics">
+        <div class="m"><div class="n">&lt;1s</div><div class="l">latence exéc.</div></div>
+        <div class="m"><div class="n">24/7</div><div class="l">en continu</div></div>
+        <div class="m"><div class="n">2 côtés</div><div class="l">couverture</div></div>
+      </div>
+
+      <div class="betarow">
+        <div class="bk"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 1 4 4 4 4 0 0 1-1 8 4 4 0 0 1-3 5 4 4 0 0 1-3-5 4 4 0 0 1-1-8 4 4 0 0 1 4-4Z"/><path d="M12 8v8M9 12h6"/></svg></div>
+        <div class="bt">
+          <span class="lab">Inclus · assistant privé</span>
+          <span class="beta">BETA</span> — ton <b>LLM privé d'investissement</b>, disponible directement dans l'appli du bot. Tu lui parles, il analyse les marchés, sort des signaux et répond en temps réel.
+        </div>
+      </div>
+
+      <div class="myst">// le reste de l'infrastructure reste <span class="w">confidentiel</span> — réservé aux porteurs du code.</div>
+    </section>
+
+    <div class="cta">
+      <a class="reward" id="getbot" href="https://t.me/Betacopytradebot" target="_blank" rel="noopener">
+        Obtenir le bot gratuitement
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="free">100% <b>gratuit</b> pour les initiés · aucune carte requise</div>
+    <a class="back" href="formations.html">← retour</a>
+  </main>
+
+  <script>
+    /* confettis — récompense (burst à l'ouverture, sans librairie) */
+    (function(){
+      if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+      var cv=document.getElementById('fx'), ctx=cv.getContext('2d'), W,H,parts=[];
+      function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
+      size(); addEventListener('resize',size);
+      var cols=['#2fd6ff','#8b6cff','#3b82f6','#46e29b','#ffffff','#bfefff'];
+      for(var i=0;i<160;i++){parts.push({x:W/2+(Math.random()-.5)*W*0.5,y:H*0.32,vx:(Math.random()-.5)*9,vy:Math.random()*-11-3,
+        s:Math.random()*7+4,c:cols[i%cols.length],r:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,life:1});}
+      var t0=null;
+      function frame(t){ if(!t0)t0=t; var dt=(t-t0); ctx.clearRect(0,0,W,H); var alive=false;
+        parts.forEach(function(p){ p.vy+=.22; p.x+=p.vx; p.y+=p.vy; p.r+=p.vr; p.life-=.006;
+          if(p.life>0 && p.y<H+20){ alive=true; ctx.save(); ctx.globalAlpha=Math.max(0,p.life); ctx.translate(p.x,p.y); ctx.rotate(p.r);
+            ctx.fillStyle=p.c; ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*0.5); ctx.restore(); }});
+        if(alive && dt<6000) requestAnimationFrame(frame); else ctx.clearRect(0,0,W,H);
+      }
+      requestAnimationFrame(frame);
+    })();
+  </script>
+</body>
+</html>

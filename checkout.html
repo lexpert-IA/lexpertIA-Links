@@ -2,492 +2,272 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rejoindre l'Académie Experts IA — 297€</title>
-  <meta name="description" content="Accès complet à l'Académie Experts IA. 7 modules, communauté privée, outils & templates. Paiement sécurisé.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Académie Experts IA — Détail de la formation</title>
+  <meta name="description" content="Le détail complet de la formation avant paiement.">
+  <meta name="theme-color" content="#07080d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR0EJ7H2TW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CR0EJ7H2TW');
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #08080c;
-      --bg-elevated: #0d0d12;
-      --bg-card: #111117;
-      --border: #1a1a24;
-      --border-light: #22223a;
-      --text: #f2f0ed;
-      --text-secondary: #c0bfba;
-      --text-muted: #7a7a8a;
-      --text-dim: #4a4a58;
-      --gold: #d4a853;
-      --gold-light: #e8c97a;
-      --gold-dim: rgba(212, 168, 83, 0.08);
-      --gold-glow: rgba(212, 168, 83, 0.25);
-      --green: #34d399;
-      --radius: 18px;
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    :root{
+      --bg:#07080d;--ink:#f2f1ed;--soft:#cdd0d8;--muted:#9398a8;--dim:#5a6072;--line:rgba(255,255,255,.09);
+      --gold:#dcc187;--crim:#dc7a7d;--tg:#2AABEE;--maxw:600px;
+      --display:'Fraunces',Georgia,serif;--sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--accent:var(--gold);
     }
+    html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+    body{font-family:var(--sans);color:var(--ink);min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+      display:flex;flex-direction:column;align-items:center;background:var(--bg);position:relative;letter-spacing:-.005em;
+      padding:0 18px calc(50px + env(safe-area-inset-bottom))}
+    body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;transition:background .6s;
+      background:radial-gradient(72% 42% at 50% -8%, color-mix(in srgb,var(--accent) 12%, transparent), transparent 60%)}
 
-    html { scroll-behavior: smooth; }
+    .bgimg{position:fixed;inset:0;z-index:-3;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:.5;transition:opacity .6s}
+    .scrim{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(7,8,13,.5),rgba(7,8,13,.85))}
+    .bar{width:100%;max-width:var(--maxw);display:flex;align-items:center;justify-content:space-between;padding:calc(16px + env(safe-area-inset-top)) 0 14px}
+    .back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-size:12.5px;transition:color .2s}
+    .back:hover{color:var(--ink)} .back svg{width:15px;height:15px}
+    .brand{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px}
+    .brand .em{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold),var(--crim));color:#0b0b0e}
+    .brand .em svg{width:13px;height:13px}
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    .wrap{width:100%;max-width:var(--maxw)}
+    .tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:18px 0 10px}
+    h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,7.4vw,40px);letter-spacing:-.02em;line-height:1.06;font-optical-sizing:auto}
+    .lead{color:var(--muted);font-size:14.5px;line-height:1.55;margin-top:12px;max-width:46ch}
 
-    a { text-decoration: none; color: inherit; }
+    .pricebar{display:flex;align-items:baseline;gap:14px;margin:22px 0 0;flex-wrap:wrap}
+    .pricebar .now{font-family:var(--display);font-weight:600;font-size:42px;line-height:1;color:var(--ink)}
+    .pricebar .old{font-size:17px;color:var(--dim);text-decoration:line-through;text-decoration-thickness:1px}
+    .pricebar .u{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 
-    /* ─── BACKGROUND ─── */
-    .bg-glow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(100, 60, 200, 0.2) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(212, 168, 83, 0.06) 0%, transparent 55%);
-    }
+    .group{margin-top:30px}
+    .group h2{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:14px;
+      display:flex;align-items:center;gap:10px}
+    .group h2::after{content:'';flex:1;height:1px;background:var(--line)}
+    .list{list-style:none;display:flex;flex-direction:column;gap:13px}
+    .list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--soft)}
+    .list .ck{flex:0 0 auto;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;margin-top:1px;border:1px solid var(--accent);color:var(--accent);opacity:.85}
+    .list .ck svg{width:11px;height:11px}
+    .list b{color:#fff;font-weight:600}
+    .list .d{display:block;color:var(--muted);font-weight:400;font-size:12px;line-height:1.4;margin-top:4px}
 
-    /* ─── LAYOUT ─── */
-    .page {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 3rem;
-    }
+    /* bandeau de stats + grille de modules à icônes */
+    .stats{display:flex;gap:10px;margin-top:24px}
+    .stats .s{flex:1;border:1px solid var(--line);border-radius:13px;padding:14px 10px;text-align:center;background:rgba(255,255,255,.02)}
+    .stats .s .n{font-family:var(--display);font-weight:600;font-size:21px;color:var(--ink)}
+    .stats .s .l{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+    .mods{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:16px}
+    .mod{border:1px solid var(--line);border-radius:15px;padding:16px;background:rgba(255,255,255,.022);transition:border-color .25s,transform .25s,box-shadow .25s}
+    .mod:hover{border-color:color-mix(in srgb,var(--accent) 42%,transparent);transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.3)}
+    .mod .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;margin-bottom:11px;color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent)}
+    .mod .ic svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .mod .top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .mod h3{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.01em;color:#fff}
+    .mod .h{flex:0 0 auto;font-size:9.5px;font-weight:700;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 38%,transparent);border-radius:6px;padding:2px 6px;letter-spacing:.03em}
+    .mod p{font-size:11.5px;line-height:1.42;color:var(--muted);margin-top:7px}
+    @media (max-width:420px){.mods{grid-template-columns:1fr}}
 
-    /* ─── BACK LINK ─── */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      transition: color 0.2s;
-    }
-    .back-link:hover { color: var(--text-secondary); }
+    .resource{margin-top:18px;padding:15px 16px;border-radius:13px;border:1px solid rgba(220,122,125,.22);background:rgba(220,122,125,.05)}
+    .resource .rt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--crim);font-weight:700;margin-bottom:6px}
+    .resource p{font-size:12.5px;line-height:1.5;color:var(--muted)} .resource b{color:#f0d6d7;font-weight:600}
 
-    /* ─── BADGE ─── */
-    .badge-top {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: var(--gold-dim);
-      border: 1px solid rgba(212, 168, 83, 0.2);
-      border-radius: 100px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
+    .seats{margin-top:22px;display:flex;flex-direction:column;gap:7px;max-width:260px}
+    .seats .lab{font-size:11px;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+    .seats .lab b{font-family:var(--display);color:var(--crim);font-weight:600}
+    .seats .dotp{width:6px;height:6px;border-radius:50%;background:var(--crim);box-shadow:0 0 7px rgba(220,122,125,.7);animation:breathe 3.2s ease-in-out infinite}
+    @keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+    .seats .bar2{height:4px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;position:relative}
+    .seats .bar2 i{position:absolute;inset:0 auto 0 0;width:80%;border-radius:3px;background:linear-gradient(90deg,#b8595c,#dc7a7d)}
 
-    /* ─── CARD ─── */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
+    .cta{position:sticky;bottom:0;width:100%;max-width:var(--maxw);margin-top:34px;padding:16px 0 calc(14px + env(safe-area-inset-bottom));
+      background:linear-gradient(0deg,var(--bg) 62%,transparent)}
+    .buy{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;text-decoration:none;
+      font-family:var(--sans);font-weight:700;font-size:16px;letter-spacing:-.01em;padding:18px;border-radius:14px;color:#0b0b0e;
+      background:linear-gradient(135deg,#ecd59b,var(--gold) 52%,#d4a85e);box-shadow:0 14px 34px rgba(220,193,135,.3);transition:transform .2s,box-shadow .25s}
+    .buy.crim{color:#fff;background:linear-gradient(135deg,rgba(220,122,125,.22),rgba(220,122,125,.08));border:1px solid rgba(220,122,125,.6)}
+    .buy:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(220,193,135,.42)}
+    .buy.crim:hover{box-shadow:0 16px 38px rgba(220,90,95,.28);background:rgba(220,122,125,.24)}
+    .buy .arr{width:18px;height:18px;transition:transform .25s} .buy:hover .arr{transform:translateX(4px)}
+    .buy::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);opacity:0}
+    .buy:hover::after{opacity:1;animation:sheen .9s ease}
+    @keyframes sheen{0%{left:-60%}100%{left:130%}}
+    .reassure{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:11px;color:var(--dim);flex-wrap:wrap}
+    .tg-link{display:inline-flex;align-items:center;gap:7px;justify-content:center;width:100%;margin-top:12px;font-size:12px;color:var(--muted);text-decoration:none}
+    .tg-link svg{width:15px;height:15px;color:var(--tg)} .tg-link:hover{color:var(--tg)} .tg-link b{color:var(--soft);font-weight:600}
 
-    /* ─── CARD HEADER ─── */
-    .card-header {
-      padding: 2rem 2rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .product-name {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 0.4rem;
-      line-height: 1.25;
-    }
-
-    .product-subtitle {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    /* ─── PRICE BLOCK ─── */
-    .price-block {
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      margin-top: 1.25rem;
-    }
-
-    .price-main {
-      font-size: 2.8rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: var(--text);
-      line-height: 1;
-    }
-
-    .price-old {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text-dim);
-      text-decoration: line-through;
-    }
-
-    .price-badge {
-      background: rgba(52, 211, 153, 0.1);
-      border: 1px solid rgba(52, 211, 153, 0.2);
-      color: var(--green);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.2rem 0.55rem;
-      border-radius: 6px;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    /* ─── INCLUDES ─── */
-    .card-body {
-      padding: 1.5rem 2rem;
-    }
-
-    .includes-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 1rem;
-    }
-
-    .includes-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .includes-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-
-    .includes-list li .check {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: rgba(52, 211, 153, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      color: var(--green);
-      margin-top: 1px;
-    }
-
-    /* ─── DIVIDER ─── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0 2rem;
-    }
-
-    /* ─── CTA SECTION ─── */
-    .card-cta {
-      padding: 1.5rem 2rem 2rem;
-    }
-
-    /* ─── BUY BUTTON ─── */
-    .btn-buy {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 1.1rem 2rem;
-      background: var(--gold);
-      color: #08080c;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      border-radius: 14px;
-      border: none;
-      cursor: pointer;
-      letter-spacing: -0.01em;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-buy::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .btn-buy:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px var(--gold-glow);
-    }
-
-    .btn-buy:active {
-      transform: translateY(0);
-    }
-
-    .btn-icon {
-      margin-left: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    /* ─── TRUST BADGES ─── */
-    .trust-badges {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.25rem;
-      margin-top: 1.1rem;
-      flex-wrap: wrap;
-    }
-
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .trust-badge .icon {
-      font-size: 0.85rem;
-    }
-
-    /* ─── GUARANTEE ─── */
-    .guarantee {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.9rem;
-      background: rgba(52, 211, 153, 0.05);
-      border: 1px solid rgba(52, 211, 153, 0.15);
-      border-radius: 12px;
-      padding: 1rem 1.1rem;
-      margin-top: 1rem;
-    }
-
-    .guarantee-icon {
-      font-size: 1.4rem;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .guarantee-text {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .guarantee-text strong {
-      display: block;
-      color: var(--green);
-      font-size: 0.82rem;
-      margin-bottom: 0.2rem;
-    }
-
-    /* ─── FOOTER NOTE ─── */
-    .footer-note {
-      text-align: center;
-      margin-top: 1.75rem;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-    }
-    .footer-note a {
-      color: var(--text-muted);
-      border-bottom: 1px solid var(--border-light);
-      transition: color 0.2s;
-    }
-    .footer-note a:hover { color: var(--gold); }
-
-    /* ─── STRIPE LOGO ─── */
-    .stripe-note {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      margin-top: 0.6rem;
-      font-size: 0.72rem;
-      color: var(--text-dim);
-    }
-
-    .stripe-note svg {
-      opacity: 0.4;
-    }
-
-    /* ─── MOBILE ─── */
-    @media (max-width: 480px) {
-      .page { padding: 1.5rem 1rem 2.5rem; }
-      .card-header, .card-body, .card-cta { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .divider { margin: 0 1.25rem; }
-      .price-main { font-size: 2.3rem; }
-      .product-name { font-size: 1.2rem; }
-      .trust-badges { gap: 0.75rem; }
-    }
-
-    /* ─── PULSE ANIMATION ON BUTTON ─── */
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(212, 168, 83, 0); }
-      50% { box-shadow: 0 0 0 8px rgba(212, 168, 83, 0.12); }
-    }
-
-    .btn-buy {
-      animation: pulse-glow 3s ease-in-out infinite;
-    }
-    .btn-buy:hover {
-      animation: none;
-    }
+    .expert{--accent:var(--crim)}
+    .expert .list .ck{border-color:var(--crim);color:var(--crim)}
+    [data-offer]{display:none} [data-offer].show{display:block;animation:fade .5s ease}
+    @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
   </style>
 </head>
 <body>
-
-<div class="bg-glow"></div>
-
-<div class="page">
-
-  <!-- Back link -->
-  <a href="vente.html" class="back-link">
-    ← Retour à la présentation
-  </a>
-
-  <!-- Badge -->
-  <div class="badge-top">
-    ✦ Offre de lancement
+  <div class="bgimg" id="bgimg"></div><div class="scrim"></div>
+  <div class="bar">
+    <a class="back" href="formations.html"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5m6-6-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Les formations</a>
+    <span class="brand"><span class="em"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5l2 6.6 6.6 2-6.6 2-2 6.4-2-6.4-6.6-2 6.6-2z"/></svg></span>L'Expert IA</span>
   </div>
 
-  <!-- Card -->
-  <div class="card">
+  <!-- ================= RACCOURCI 88€ ================= -->
+  <main class="wrap" data-offer="raccourci">
+    <div class="tag">Formation · Accès à vie</div>
+    <h1>Le Raccourci — Tout-en-1</h1>
+    <p class="lead">Créer, automatiser et monétiser avec l'IA — même en partant de zéro. Voici exactement ce que tu vas savoir faire.</p>
+    <div class="pricebar"><span class="now">88€</span><span class="old">147€</span><span class="u">paiement unique · à vie</span></div>
 
-    <!-- Header -->
-    <div class="card-header">
-      <div class="product-name">Académie Experts IA<br>— Accès Complet</div>
-      <div class="product-subtitle">Formation · Outils · Communauté · Accès à vie</div>
-
-      <div class="price-block">
-        <span class="price-main">297€</span>
-        <span class="price-old">597€</span>
-        <span class="price-badge">−50%</span>
-      </div>
+    <div class="stats">
+      <div class="s"><div class="n">30h</div><div class="l">de cours vidéo</div></div>
+      <div class="s"><div class="n">9</div><div class="l">modules</div></div>
+      <div class="s"><div class="n">∞</div><div class="l">accès à vie</div></div>
     </div>
 
-    <!-- Includes -->
-    <div class="card-body">
-      <div class="includes-label">Ce qui est inclus</div>
-      <ul class="includes-list">
-        <li>
-          <span class="check">✓</span>
-          <span><strong style="color:var(--text)">7 modules complets</strong> — De zéro à expert IA</span>
-        </li>
-        <li>
-          <span class="check">✓</span>
-          <span><strong style="color:var(--text)">Communauté Telegram privée</strong> — Entraide & opportunités</span>
-        </li>
-        <li>
-          <span class="check">✓</span>
-          <span><strong style="color:var(--text)">Templates & outils exclusifs</strong> — Prêts à l'emploi</span>
-        </li>
-        <li>
-          <span class="check">✓</span>
-          <span><strong style="color:var(--text)">Mises à jour à vie</strong> — L'IA évolue, tu évolues</span>
-        </li>
-        <li>
-          <span class="check">✓</span>
-          <span><strong style="color:var(--text)">Accès immédiat</strong> — Commence dans 2 minutes</span>
-        </li>
-      </ul>
-    </div>
+    <section class="group">
+      <h2>Les modules — 30h, plusieurs angles pour monétiser</h2>
+      <div class="mods">
 
-    <div class="divider"></div>
-
-    <!-- CTA -->
-    <div class="card-cta">
-
-      <a href="https://buy.stripe.com/cNi14neYn2GC3ZF1Mu00002" class="btn-buy" id="buy-btn">
-        Rejoindre l'Académie maintenant
-        <span class="btn-icon">→</span>
-      </a>
-
-      <!-- Trust badges -->
-      <div class="trust-badges">
-        <span class="trust-badge"><span class="icon">🔒</span> Paiement sécurisé</span>
-        <span class="trust-badge"><span class="icon">⚡</span> Accès immédiat</span>
-        <span class="trust-badge"><span class="icon">✅</span> Remboursé 30j</span>
-      </div>
-
-      <!-- Guarantee -->
-      <div class="guarantee">
-        <span class="guarantee-icon">🛡️</span>
-        <div class="guarantee-text">
-          <strong>Garantie satisfait ou remboursé — 30 jours</strong>
-          Si l'Académie ne te convient pas, on te rembourse intégralement. Sans condition, sans question.
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7h-5M21 7v5"/></svg></div>
+          <div class="top"><h3>Monétiser l'IA</h3><span class="h">4h</span></div>
+          <p>Les modèles concrets pour transformer l'IA en revenus — quoi vendre, à qui, comment scaler.</p>
         </div>
-      </div>
 
-      <!-- Stripe note -->
-      <div class="stripe-note">
-        <svg width="38" height="16" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v3.32a10 10 0 01-4.56.95c-4.01 0-6.83-2.5-6.83-7.48 0-4.19 2.39-7.52 6.3-7.52 3.92 0 5.96 3.28 5.96 7.5 0 .4-.04 1.13-.06 1.63zm-5.92-5.6c-1.03 0-2.17.73-2.17 2.58h4.25c0-1.85-1.07-2.58-2.08-2.58zM40.95 20.15c1.29 0 2.06-.59 2.06-1.49 0-.95-.81-1.46-1.98-1.91l-.84-.31c-2.66-1.01-4.06-2.44-4.06-4.97 0-3.13 2.48-4.86 5.55-4.86 1.58 0 3.01.35 4.22 1.03v3.66c-1.03-.72-2.13-1.25-3.39-1.25-1.21 0-1.93.55-1.93 1.38 0 .83.66 1.3 1.93 1.77l.97.35c2.57.94 3.98 2.31 3.98 4.94 0 3.28-2.59 5.1-5.85 5.1a9.8 9.8 0 01-4.83-1.18V18.5c1.06.89 2.35 1.65 3.71 1.65h.46zm-14.37-.42v-9.6h-2.34V7.05h2.34V3.91l4.14-1.23v4.37h3.23v3.08h-3.23v8.75c0 1.2.53 1.69 1.53 1.69.6 0 1.22-.16 1.71-.39v3.07c-.7.35-1.63.55-2.71.55-2.69 0-4.67-1.23-4.67-4.07zM17.35 7.05v13.13h4.14V7.05h-4.14zm0-5.77h4.14V5.2h-4.14V1.28zM9.3 8.06v-.01c0-.88-.66-1.38-2.03-1.38-1.28 0-2.38.39-3.47.95V4.19C4.87 3.55 6.2 3.1 8 3.1c3.61 0 5.48 1.77 5.48 4.96v6c0 2.25.04 3.76.12 5.12H9.8l-.14-2.35h-.05c-.82 1.47-2.27 2.65-4.38 2.65C2.77 19.48 1 17.62 1 15.04c0-3.3 2.7-4.97 7.55-4.97h.75V8.06zm0 3.78h-.47c-2.3 0-3.44.75-3.44 2.07 0 1.01.62 1.65 1.73 1.65 1.29 0 2.18-.95 2.18-2.37v-1.35z" fill="currentColor"/>
-        </svg>
-        Paiement traité par Stripe — Crypté SSL
-      </div>
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></div>
+          <div class="top"><h3>Musique &amp; son IA</h3><span class="h">3h</span></div>
+          <p>Composer, cloner des voix, mixer — jusqu'à des morceaux prêts à publier et monétiser.</p>
+        </div>
 
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></div>
+          <div class="top"><h3>Contenu réseaux</h3><span class="h">4h</span></div>
+          <p>TikTok, Insta, YouTube : produire en série avec l'IA et percer l'algorithme.</p>
+        </div>
+
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <div class="top"><h3>Plateformes adultes <span style="opacity:.6">18+</span></h3><span class="h">3h</span></div>
+          <p>Monétiser un personnage IA sur les plateformes adultes — en toute discrétion.</p>
+        </div>
+
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 12h4M9 10v4M16 11h.01M18.5 13.5h.01"/></svg></div>
+          <div class="top"><h3>Jeux vidéo IA</h3><span class="h">4h</span></div>
+          <p>De l'idée au jeu jouable (2D &amp; 3D) : décors, sprites, mécaniques, export.</p>
+        </div>
+
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></div>
+          <div class="top"><h3>Vidéos &amp; visuels</h3><span class="h">3h</span></div>
+          <p>Pubs, clips, miniatures de niveau pro — génération, montage, voix off clonée.</p>
+        </div>
+
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <div class="top"><h3>Influenceuse IA</h3><span class="h">3h</span></div>
+          <p>Créer un personnage IA cohérent, poster en auto, et le monétiser.</p>
+        </div>
+
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+          <div class="top"><h3>Orchestration d'agents</h3><span class="h">4h</span></div>
+          <p>Architecturer des agents qui gèrent tout en automatique — ton « Jarvis » personnel.</p>
+        </div>
+
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+          <div class="top"><h3>Services B2B</h3><span class="h">2h</span></div>
+          <p>Vendre des prestations IA aux entreprises qui en ont besoin — du devis à la livraison.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Tes ressources &amp; ton support</h2>
+      <ul class="list">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Tout en cours vidéo pas-à-pas</b> — du débutant au premier résultat.<small class="d">Vidéos claires, à suivre dans l'ordre, en visionnage illimité à vie.</small></span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>+200 prompts &amp; workflows</b> prêts à copier-coller.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Accompagnement personnalisé</b> + communauté privée.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Accès à vie</b> + toutes les mises à jour incluses.</span></li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      <a class="buy" href="https://buy.stripe.com/3cIeVdg2r4OKdAf1Mu00003">
+        Obtenir ma formation — 88€
+        <svg class="arr" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="reassure"><span>✓ Paiement sécurisé Stripe</span><span>✓ Accès immédiat</span><span>✓ À vie</span></div>
+      <a class="tg-link" href="https://t.me/lexpertIA" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.6 19.1c-.25 1.1-.92 1.37-1.86.85l-5.14-3.79-2.48 2.39c-.27.27-.5.5-1.03.5l.37-5.2L17.9 6.1c.4-.36-.09-.56-.62-.2L6.45 12.6l-5.07-1.58C.27 10.68.25 9.92 1.62 9.4l18.7-7.2c.92-.34 1.72.22 1.62 2.1Z"/></svg>
+        Une question ? <b>Telegram gratuit</b>
+      </a>
     </div>
-  </div>
+  </main>
 
-  <!-- Footer note -->
-  <div class="footer-note">
-    Paiement unique — Pas d'abonnement.<br>
-    Questions ? <a href="mailto:pipidersa@gmail.com">pipidersa@gmail.com</a>
-  </div>
+  <!-- ================= EXPERT 998€ ================= -->
+  <main class="wrap expert" data-offer="expert">
+    <div class="tag">Accompagnement premium · places limitées</div>
+    <h1>L'IA au niveau expert</h1>
+    <p class="lead">Bâtir tes propres systèmes IA — pas seulement les utiliser. Le programme complet, sans rien cacher.</p>
+    <div class="pricebar"><span class="now">998€</span><span class="u">paiement unique · accompagnement</span></div>
 
-</div>
+    <div class="seats" aria-label="Places d'accompagnement restantes : 2 sur 10">
+      <span class="lab"><span class="dotp"></span>Places d'accompagnement restantes&nbsp;<b>2 / 10</b></span>
+      <span class="bar2"><i></i></span>
+    </div>
 
-<!-- Petit effet : focus sur le bouton après load -->
-<script>
-  document.getElementById('buy-btn').addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href === 'STRIPE_PAYMENT_LINK_ICI') {
-      e.preventDefault();
-      alert('⚠️ Lien de paiement non configuré.\n\nRemplace "STRIPE_PAYMENT_LINK_ICI" dans checkout.html par ton lien Stripe Payment Link.');
-    }
-  });
-</script>
+    <section class="group">
+      <h2>Le programme</h2>
+      <ul class="list">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>System prompt engineering</b> avancé — concevoir le cerveau d'un agent.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Reverse prompt engineering</b> — décoder n'importe quel système.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Évaluation &amp; rating de modèles</b> (benchmark, red-teaming).</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>LLM ablités</b> — l'IA sans filtre ni bridage.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Orchestration de bots finance &amp; trading</b>.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Agents autonomes</b> qui exécutent des tâches complètes sans supervision.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Fine-tuning &amp; RAG</b> sur tes propres données.</span></li>
+      </ul>
+      <div class="resource">
+        <div class="rt">Débloqué comme ressource dans ton apprentissage</div>
+        <p><b>Dossiers cachés</b> — ce que l'IA fait vraiment quand personne ne regarde : techniques introuvables ailleurs, légales mais rarement partagées.</p>
+      </div>
+    </section>
 
+    <section class="group">
+      <h2>Inclus</h2>
+      <ul class="list">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>L'intégralité de <b>« Le Raccourci — Tout-en-1 »</b>.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Accompagnement intensif</b> — places limitées.</span></li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      <a class="buy crim" href="https://buy.stripe.com/6oU4gzaI70yubs73UC00004">
+        Rejoindre le niveau expert — 998€
+        <svg class="arr" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="reassure"><span>✓ Paiement sécurisé Stripe</span><span>✓ Accompagnement personnel</span></div>
+      <a class="tg-link" href="https://t.me/lexpertIA" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.6 19.1c-.25 1.1-.92 1.37-1.86.85l-5.14-3.79-2.48 2.39c-.27.27-.5.5-1.03.5l.37-5.2L17.9 6.1c.4-.36-.09-.56-.62-.2L6.45 12.6l-5.07-1.58C.27 10.68.25 9.92 1.62 9.4l18.7-7.2c.92-.34 1.72.22 1.62 2.1Z"/></svg>
+        Un doute ? <b>Parle-m'en sur Telegram</b>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      var f=(new URLSearchParams(location.search).get('f')||'raccourci').toLowerCase();
+      var which=(f==='expert')?'expert':'raccourci';
+      var target=document.querySelector('[data-offer="'+which+'"]');
+      target.classList.add('show');
+      if(which==='expert') document.documentElement.style.setProperty('--accent','var(--crim)');
+      var bg=document.getElementById('bgimg');
+      if(bg) bg.style.backgroundImage = "url('assets/bg-"+which+"-web.jpg')";
+    })();
+  </script>
 </body>
 </html>

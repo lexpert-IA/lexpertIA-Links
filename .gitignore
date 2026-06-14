@@ -1,0 +1,7 @@
+# backups locaux — ne pas publier
+formations.v*-backup.html
+formations.backup-*.html
+checkout.old-*-backup.html
+
+# assets lourds non utilisés en prod (gardés en local)
+assets/*.png
