@@ -125,6 +125,30 @@
     .resource p{font-size:12px;line-height:1.5;color:var(--muted)}
     .resource b{color:#f0d6d7;font-weight:600}
 
+    /* preuves visuelles — compactes, comme un dossier de recherche */
+    .proof-lab{margin-top:18px;padding:13px;border-radius:14px;border:1px solid color-mix(in srgb,var(--beam) 28%,transparent);
+      background:linear-gradient(180deg,color-mix(in srgb,var(--beam) 8%,transparent),rgba(255,255,255,.025));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+    .proof-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:10px}
+    .proof-head span{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    .proof-head b{font-family:var(--display);font-size:15px;color:#fff;font-weight:600}
+    .proof-copy{font-size:12px;line-height:1.45;color:var(--muted);margin-bottom:12px}
+    .proof-case{display:grid;grid-template-columns:94px minmax(0,1fr);gap:3px 9px;align-items:start;
+      padding-top:12px;margin-top:12px;border-top:1px solid rgba(255,255,255,.075)}
+    .proof-case:first-of-type{padding-top:0;margin-top:0;border-top:0}
+    .proof-case h3{grid-column:1;grid-row:1;font-size:12px;font-weight:700;color:var(--soft);line-height:1.2}
+    .proof-case p{grid-column:1;grid-row:2;font-size:10.8px;line-height:1.35;color:var(--muted)}
+    .proof-strip{grid-column:2;grid-row:1 / span 2;display:grid;gap:6px;margin-top:0}
+    .proof-strip.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .proof-strip.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .proof-shot{position:relative;overflow:hidden;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035)}
+    .proof-shot img{display:block;width:100%;height:56px;object-fit:cover;object-position:center;filter:saturate(.92) contrast(1.04)}
+    .proof-shot.top img{object-position:center top}
+    .proof-shot.low img{object-position:center 72%}
+    .proof-shot::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.36));pointer-events:none}
+    .proof-meta{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
+    .proof-meta b{color:color-mix(in srgb,var(--beam) 72%,#fff);font-weight:700}
+
     .buy{position:relative;overflow:hidden;margin-top:20px;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;text-decoration:none;
       font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:-.01em;padding:17px 18px;border-radius:13px;
       transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s,border-color .25s}
@@ -197,6 +221,16 @@
     @keyframes glitch{25%{transform:translate(2px,-1px)}50%{transform:translate(-2px,1px)}75%{transform:translate(1px,2px)}}
     .foot{margin-top:32px;color:var(--dim);font-size:11px;text-align:center}
     .foot a{color:var(--muted);text-decoration:none}
+    @media (max-width:430px){
+      .proof-lab{padding:12px}
+      .proof-head{align-items:flex-start;flex-direction:column;gap:3px}
+      .proof-copy{font-size:11.5px}
+      .proof-case{grid-template-columns:78px minmax(0,1fr);gap:3px 7px}
+      .proof-strip{gap:5px}
+      .proof-shot img{height:48px}
+      .proof-case h3{font-size:11.5px}
+      .proof-case p{display:none}
+    }
     .rise{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
     .rise.in{opacity:1;transform:none}
     @media (prefers-reduced-motion:reduce){.rise{opacity:1!important;transform:none!important}.exp-hint .pulse{animation:none}}
@@ -243,6 +277,44 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Créer <b>ton influenceuse IA</b> — et la <b>monétiser</b>.</span></li>
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Des <b>agents qui produisent ton contenu 24/7</b>.</span></li>
       </ul>
+
+      <div class="proof-lab" aria-label="Exemples visuels de production IA">
+        <div class="proof-head"><span>preuves de production</span><b>visuels, produit, influence</b></div>
+        <p class="proof-copy">Exemples courts, disposés comme un dossier: partir d'une référence, créer une scène exploitable, puis décliner le rendu pour une offre ou un profil.</p>
+
+        <div class="proof-case">
+          <h3>Produit vers contenu e-commerce</h3>
+          <p>Identifier un produit, extraire la direction visuelle, produire une présentation vendable.</p>
+          <div class="proof-strip three">
+            <span class="proof-shot top"><img src="assets/examples/proof-product-glasses.jpg" alt="Exemple de produit lunettes audio en fiche e-commerce" loading="lazy" decoding="async"></span>
+            <span class="proof-shot"><img src="assets/examples/proof-product-top.jpg" alt="Exemple de vêtement produit noir pour référence visuelle" loading="lazy" decoding="async"></span>
+            <span class="proof-shot"><img src="assets/examples/proof-product-shoes.jpg" alt="Exemple de chaussures produit rose pour déclinaison publicitaire" loading="lazy" decoding="async"></span>
+          </div>
+        </div>
+
+        <div class="proof-case">
+          <h3>Scène, véhicule, personnage</h3>
+          <p>Garder la cohérence d'un décor et transformer la scène en contenu lifestyle crédible.</p>
+          <div class="proof-strip four">
+            <span class="proof-shot"><img src="assets/examples/proof-auto-base.jpg" alt="Référence automobile noire en décor urbain" loading="lazy" decoding="async"></span>
+            <span class="proof-shot"><img src="assets/examples/proof-auto-staged.jpg" alt="Scène automobile avec personnage ajouté" loading="lazy" decoding="async"></span>
+            <span class="proof-shot low"><img src="assets/examples/proof-lifestyle-vendome-a.jpg" alt="Déclinaison lifestyle automobile à Paris" loading="lazy" decoding="async"></span>
+            <span class="proof-shot low"><img src="assets/examples/proof-lifestyle-vendome-b.jpg" alt="Variation lifestyle automobile Place Vendôme" loading="lazy" decoding="async"></span>
+          </div>
+        </div>
+
+        <div class="proof-case">
+          <h3>Avatar et influence IA</h3>
+          <p>Construire des profils visuels constants: tenue, posture, lieu, lumière, narration.</p>
+          <div class="proof-strip three">
+            <span class="proof-shot top"><img src="assets/examples/proof-avatar-reference-hoodie.jpg" alt="Référence de tenue grise pour avatar ou influenceur IA" loading="lazy" decoding="async"></span>
+            <span class="proof-shot top"><img src="assets/examples/proof-avatar-reference-black.jpg" alt="Référence de tenue noire pour avatar ou influenceur IA" loading="lazy" decoding="async"></span>
+            <span class="proof-shot top"><img src="assets/examples/proof-lifestyle-balcony.jpg" alt="Exemple lifestyle balcon et décor mer pour contenu influence" loading="lazy" decoding="async"></span>
+          </div>
+        </div>
+
+        <div class="proof-meta"><span>format mobile</span><b>10 exemples compressés</b></div>
+      </div>
 
       <div class="more-wrap" id="more-gold">
         <ul class="list">
