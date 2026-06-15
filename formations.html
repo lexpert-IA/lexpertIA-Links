@@ -8,18 +8,18 @@
   <meta name="theme-color" content="#07080d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
     :root{
       --bg:#07080d;--ink:#f2f1ed;--soft:#cdd0d8;--muted:#9398a8;--dim:#5a6072;--line:rgba(255,255,255,.09);
       --card:rgba(255,255,255,.02);--gold:#dcc187;--crim:#dc7a7d;--tg:#2AABEE;--r:16px;--maxw:560px;
-      --display:'Fraunces',Georgia,serif;--sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      --display:'Newsreader',Georgia,serif;--sans:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
     }
     html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
     body{font-family:var(--sans);color:var(--ink);min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;
       display:flex;flex-direction:column;align-items:center;background:var(--bg);position:relative;
-      padding:0 18px calc(46px + env(safe-area-inset-bottom));letter-spacing:-.005em}
+      padding:0 18px calc(46px + env(safe-area-inset-bottom));letter-spacing:0}
     body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;transition:background .7s ease;
       background:radial-gradient(72% 42% at 50% -8%, rgba(220,193,135,.09), transparent 60%)}
     body[data-uni="raccourci"]::before{background:radial-gradient(74% 46% at 50% -8%, rgba(232,201,122,.17), transparent 60%)}
@@ -41,7 +41,7 @@
       background:linear-gradient(140deg,var(--gold),var(--crim));color:#0b0b0e;box-shadow:0 4px 16px rgba(220,150,120,.4)}
     .masthead .emblem svg{width:17px;height:17px}
     .masthead .wm{display:flex;flex-direction:column;gap:3px;line-height:1}
-    .masthead .wm b{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--ink);letter-spacing:-.01em}
+    .masthead .wm b{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--ink);letter-spacing:0}
     .masthead .wm small{font-family:var(--sans);font-weight:500;font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
     .masthead .sep{width:1px;height:24px;background:var(--line)}
     .masthead .tg{width:34px;height:34px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;
@@ -50,7 +50,7 @@
 
     .head{width:100%;max-width:var(--maxw);margin:30px 0 24px}
     .kicker{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px}
-    .head h1{font-family:var(--display);font-size:clamp(27px,7vw,38px);font-weight:500;letter-spacing:-.015em;line-height:1.1;font-optical-sizing:auto}
+    .head h1{font-family:var(--display);font-size:clamp(27px,7vw,38px);font-weight:500;letter-spacing:0;line-height:1.1;font-optical-sizing:auto}
     .head p{color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:12px;max-width:430px}
 
     .offers{width:100%;max-width:var(--maxw);display:flex;flex-direction:column;gap:16px}
@@ -70,7 +70,7 @@
     .expert{--beam:#dc7a7d;cursor:pointer;--frame:url('assets/ui-card-frame-crimson.png')}
 
     .c-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
-    .c-name{font-family:var(--display);font-size:23px;font-weight:600;letter-spacing:-.01em;line-height:1.12;color:#fff;font-optical-sizing:auto}
+    .c-name{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:0;line-height:1.12;color:#fff;font-optical-sizing:auto}
     .c-sub{color:var(--muted);font-size:12.5px;margin-top:6px;line-height:1.45;max-width:33ch}
     /* prix : monochrome, sobre */
     .price{flex:0 0 auto;text-align:right;white-space:nowrap}
@@ -161,7 +161,7 @@
     .proof-meta b{color:color-mix(in srgb,var(--beam) 72%,#fff);font-weight:700}
 
     .buy{position:relative;overflow:hidden;margin-top:20px;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;text-decoration:none;
-      font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:-.01em;padding:17px 18px;border-radius:13px;
+      font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:0;padding:17px 18px;border-radius:13px;
       transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s,border-color .25s}
     .buy:active{transform:translateY(0) scale(.99)}
     .buy .arr{flex:0 0 auto;width:17px;height:17px;transition:transform .25s}
@@ -272,8 +272,8 @@
     <section class="card gold rise" data-card="gold">
       <div class="c-top">
         <div>
-          <div class="c-name">Le Raccourci — Tout-en-1</div>
-          <div class="c-sub">Créer, automatiser et monétiser avec l'IA — même en partant de zéro.</div>
+          <div class="c-name">Le Raccourci</div>
+          <div class="c-sub">Tout&#8209;en&#8209;1 pour créer, automatiser et monétiser avec l'IA — même en partant de zéro.</div>
         </div>
         <div class="price"><span class="now">88€</span><span class="old">147€</span><span class="unit">accès à vie</span>
           <div class="seal"><span class="si">🎬</span><span class="sn">30h</span><span class="sl">de cours vidéo</span></div>
