@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Académie Experts IA — Preuves de production</title>
+  <meta name="description" content="Exemples réels de production visuelle IA : produit e-commerce, mise en scène avant/après, avatars et influence. Le rendu que tu apprends à produire.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#07080d;--ink:#f2f1ed;--soft:#cdd0d8;--muted:#9398a8;--dim:#5a6072;--line:rgba(255,255,255,.09);
+      --card:rgba(255,255,255,.02);--gold:#dcc187;--crim:#dc7a7d;--tg:#2AABEE;--r:16px;
+      --display:'Fraunces',Georgia,serif;--sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--sans);color:var(--ink);min-height:100dvh;background:var(--bg);
+      -webkit-font-smoothing:antialiased;overflow-x:hidden;
+      background-image:radial-gradient(1200px 600px at 50% -10%,rgba(220,193,135,.07),transparent 60%);}
+    .wrap{max-width:980px;margin:0 auto;padding:22px 20px 64px}
+
+    /* header */
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:34px}
+    .back{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);text-decoration:none;
+      padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.025);transition:.18s}
+    .back:hover{color:var(--ink);border-color:color-mix(in srgb,var(--gold) 40%,transparent);transform:translateX(-2px)}
+    .wm{display:inline-flex;align-items:baseline;gap:8px}
+    .wm b{font-family:var(--display);font-size:16px;font-weight:600;color:#fff}
+    .wm small{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+    /* hero */
+    .eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
+    h1{font-family:var(--display);font-size:clamp(30px,5vw,44px);font-weight:600;letter-spacing:-.01em;line-height:1.05;margin-bottom:14px}
+    .lede{font-size:15.5px;line-height:1.55;color:var(--soft);max-width:62ch}
+    .lede b{color:var(--ink);font-weight:600}
+    .rule{height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 55%,transparent),transparent);margin:30px 0 0}
+
+    /* section */
+    section{margin-top:46px}
+    .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+    .sec-head h2{font-family:var(--display);font-size:21px;font-weight:600;color:#fff}
+    .sec-head span{font-size:13px;color:var(--muted);line-height:1.4}
+
+    /* grille d'images — lisibles, pas écrasées */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+    .shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);
+      background:rgba(255,255,255,.03);cursor:zoom-in;transition:.2s}
+    .shot:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--gold) 45%,transparent);
+      box-shadow:0 18px 40px -22px rgba(0,0,0,.8)}
+    .shot img{display:block;width:100%;height:260px;object-fit:cover;object-position:center}
+    .shot .tag{position:absolute;left:10px;top:10px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+      font-weight:700;color:#fff;background:rgba(7,8,13,.62);backdrop-filter:blur(6px);
+      padding:4px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+    .shot .tag.gold{color:var(--gold);border-color:color-mix(in srgb,var(--gold) 45%,transparent)}
+
+    /* paire avant/après */
+    .ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+    .ba .arrow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
+      width:38px;height:38px;border-radius:999px;background:rgba(7,8,13,.78);border:1px solid color-mix(in srgb,var(--gold) 50%,transparent);
+      display:grid;place-items:center;color:var(--gold);pointer-events:none}
+    .ba-wrap{position:relative}
+
+    /* lightbox */
+    .lb{position:fixed;inset:0;z-index:50;background:rgba(4,5,9,.92);backdrop-filter:blur(8px);
+      display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+    .lb.on{display:flex}
+    .lb img{max-width:96vw;max-height:90vh;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 30px 80px -30px rgba(0,0,0,.9)}
+    .lb-close{position:absolute;top:18px;right:22px;color:var(--soft);font-size:26px;line-height:1;cursor:pointer;
+      width:42px;height:42px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);display:grid;place-items:center}
+
+    /* cta bas */
+    .foot{margin-top:54px;padding-top:26px;border-top:1px solid var(--line);
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+    .buy{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;color:#1a1407;text-decoration:none;
+      background:linear-gradient(180deg,#e9d7a6,#d8bd80);padding:13px 24px;border-radius:12px;transition:.18s;
+      box-shadow:0 12px 30px -14px rgba(220,193,135,.6)}
+    .buy:hover{transform:translateY(-2px);box-shadow:0 18px 40px -16px rgba(220,193,135,.7)}
+    .foot-note{font-size:12px;color:var(--dim)}
+    .foot-note a{color:var(--muted);text-decoration:none}
+    .foot-note a:hover{color:var(--ink)}
+
+    @media (max-width:560px){
+      .shot img{height:210px}
+      .ba{grid-template-columns:1fr}
+      .ba .arrow{left:50%;top:auto;bottom:-7px;transform:translate(-50%,0) rotate(90deg)}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="back" href="formations.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Retour aux formations
+      </a>
+      <span class="wm"><b>L'Expert IA</b><small>Académie</small></span>
+    </div>
+
+    <div class="eyebrow">Preuves de production</div>
+    <h1>Le rendu que tu apprends<br>à produire.</h1>
+    <p class="lede">Pas des promesses — des <b>exemples réels</b> de la méthode : partir d'une référence,
+      construire une scène cohérente, puis décliner le rendu pour une offre e-commerce ou un profil d'influence.
+      Chaque image est cliquable.</p>
+    <div class="rule"></div>
+
+    <!-- 1. Produit e-commerce -->
+    <section>
+      <div class="sec-head">
+        <h2>Produit → contenu e-commerce</h2>
+        <span>Identifier un produit, extraire la direction visuelle, produire une présentation vendable.</span>
+      </div>
+      <div class="grid">
+        <figure class="shot"><span class="tag gold">Produit</span><img src="assets/examples/proof-product-glasses.jpg" alt="Lunettes audio en fiche e-commerce générée par IA" loading="lazy" decoding="async"></figure>
+        <figure class="shot"><span class="tag gold">Produit</span><img src="assets/examples/proof-product-top.jpg" alt="Vêtement noir en présentation produit IA" loading="lazy" decoding="async"></figure>
+        <figure class="shot"><span class="tag gold">Produit</span><img src="assets/examples/proof-product-shoes.jpg" alt="Chaussures roses en déclinaison publicitaire IA" loading="lazy" decoding="async"></figure>
+      </div>
+    </section>
+
+    <!-- 2. Scène & avant/après -->
+    <section>
+      <div class="sec-head">
+        <h2>Scène, véhicule, mise en situation</h2>
+        <span>Garder la cohérence d'un décor et transformer une référence brute en contenu lifestyle crédible.</span>
+      </div>
+      <div class="ba" style="margin-bottom:14px">
+        <div class="ba-wrap"><figure class="shot" style="height:100%"><span class="tag">Référence</span><img src="assets/examples/proof-auto-base.jpg" alt="Référence automobile noire en décor urbain" loading="lazy" decoding="async"></figure></div>
+        <div class="ba-wrap"><span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><figure class="shot" style="height:100%"><span class="tag gold">Rendu</span><img src="assets/examples/proof-auto-staged.jpg" alt="Scène automobile mise en situation avec personnage par IA" loading="lazy" decoding="async"></figure></div>
+      </div>
+      <div class="grid">
+        <figure class="shot"><span class="tag">Déclinaison</span><img src="assets/examples/proof-lifestyle-vendome-a.jpg" alt="Déclinaison lifestyle automobile à Paris" loading="lazy" decoding="async"></figure>
+        <figure class="shot"><span class="tag">Déclinaison</span><img src="assets/examples/proof-lifestyle-vendome-b.jpg" alt="Variation lifestyle automobile Place Vendôme" loading="lazy" decoding="async"></figure>
+      </div>
+    </section>
+
+    <!-- 3. Avatar & influence -->
+    <section>
+      <div class="sec-head">
+        <h2>Avatar &amp; influence IA</h2>
+        <span>Construire un profil visuel constant : tenue, posture, lieu, lumière, narration.</span>
+      </div>
+      <div class="grid">
+        <figure class="shot"><span class="tag">Référence</span><img src="assets/examples/proof-avatar-reference-hoodie.jpg" alt="Référence de tenue grise pour avatar IA" loading="lazy" decoding="async"></figure>
+        <figure class="shot"><span class="tag">Référence</span><img src="assets/examples/proof-avatar-reference-black.jpg" alt="Référence de tenue noire pour avatar IA" loading="lazy" decoding="async"></figure>
+        <figure class="shot"><span class="tag gold">Mise en scène</span><img src="assets/examples/proof-lifestyle-balcony.jpg" alt="Scène lifestyle balcon bord de mer pour contenu influence" loading="lazy" decoding="async"></figure>
+      </div>
+    </section>
+
+    <div class="foot">
+      <a class="buy" href="checkout.html?f=raccourci">
+        Apprendre à produire ça — 88€
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="foot-note"><a href="index.html">← Accueil</a> · L'Expert IA · paiement sécurisé Stripe</span>
+    </div>
+  </div>
+
+  <!-- lightbox -->
+  <div class="lb" id="lb" aria-hidden="true"><span class="lb-close" aria-label="Fermer">✕</span><img src="" alt="Aperçu agrandi"></div>
+
+  <script>
+    (function(){
+      var lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+      document.querySelectorAll('.shot img').forEach(function(img){
+        img.addEventListener('click',function(e){
+          e.stopPropagation();
+          lbImg.src=img.src; lbImg.alt=img.alt||'Aperçu agrandi';
+          lb.classList.add('on'); lb.setAttribute('aria-hidden','false');
+        });
+      });
+      function close(){ lb.classList.remove('on'); lb.setAttribute('aria-hidden','true'); lbImg.src=''; }
+      lb.addEventListener('click',close);
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+    })();
+  </script>
+</body>
+</html>

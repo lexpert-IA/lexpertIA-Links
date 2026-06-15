@@ -142,7 +142,15 @@
     .proof-strip.three{grid-template-columns:repeat(3,minmax(0,1fr))}
     .proof-strip.four{grid-template-columns:repeat(2,minmax(0,1fr))}
     .proof-shot{position:relative;overflow:hidden;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035)}
-    .proof-shot img{display:block;width:100%;height:56px;object-fit:cover;object-position:center;filter:saturate(.92) contrast(1.04)}
+    .proof-shot img{display:block;width:100%;height:132px;object-fit:cover;object-position:center;filter:saturate(.95) contrast(1.03);transition:.2s}
+    .proof-shot:hover img{transform:scale(1.04)}
+    .proof-teaser-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 13px}
+    .proof-cta{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:600;
+      color:var(--gold);text-decoration:none;padding:12px;border:1px solid color-mix(in srgb,var(--gold) 34%,transparent);
+      border-radius:11px;background:rgba(220,193,135,.06);transition:.18s}
+    .proof-cta:hover{background:rgba(220,193,135,.12);border-color:color-mix(in srgb,var(--gold) 55%,transparent);transform:translateY(-1px)}
+    .proof-cta svg{transition:transform .18s}
+    .proof-cta:hover svg{transform:translateX(3px)}
     .proof-shot.top img{object-position:center top}
     .proof-shot.low img{object-position:center 72%}
     .proof-shot::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.36));pointer-events:none}
@@ -227,9 +235,8 @@
       .proof-copy{font-size:11.5px}
       .proof-case{grid-template-columns:78px minmax(0,1fr);gap:3px 7px}
       .proof-strip{gap:5px}
-      .proof-shot img{height:48px}
+      .proof-shot img{height:108px}
       .proof-case h3{font-size:11.5px}
-      .proof-case p{display:none}
     }
     .rise{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
     .rise.in{opacity:1;transform:none}
@@ -278,42 +285,18 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Des <b>agents qui produisent ton contenu 24/7</b>.</span></li>
       </ul>
 
-      <div class="proof-lab" aria-label="Exemples visuels de production IA">
+      <div class="proof-lab" aria-label="Aperçu des exemples de production IA">
         <div class="proof-head"><span>preuves de production</span><b>visuels, produit, influence</b></div>
-        <p class="proof-copy">Exemples courts, disposés comme un dossier: partir d'une référence, créer une scène exploitable, puis décliner le rendu pour une offre ou un profil.</p>
-
-        <div class="proof-case">
-          <h3>Produit vers contenu e-commerce</h3>
-          <p>Identifier un produit, extraire la direction visuelle, produire une présentation vendable.</p>
-          <div class="proof-strip three">
-            <span class="proof-shot top"><img src="assets/examples/proof-product-glasses.jpg" alt="Exemple de produit lunettes audio en fiche e-commerce" loading="lazy" decoding="async"></span>
-            <span class="proof-shot"><img src="assets/examples/proof-product-top.jpg" alt="Exemple de vêtement produit noir pour référence visuelle" loading="lazy" decoding="async"></span>
-            <span class="proof-shot"><img src="assets/examples/proof-product-shoes.jpg" alt="Exemple de chaussures produit rose pour déclinaison publicitaire" loading="lazy" decoding="async"></span>
-          </div>
+        <p class="proof-copy">Le rendu réel de la méthode : produit e-commerce, mise en scène avant/après, avatars d'influence.</p>
+        <div class="proof-teaser-grid">
+          <span class="proof-shot"><img src="assets/examples/proof-product-shoes.jpg" alt="Produit e-commerce généré par IA" loading="lazy" decoding="async"></span>
+          <span class="proof-shot"><img src="assets/examples/proof-auto-staged.jpg" alt="Scène automobile mise en situation par IA" loading="lazy" decoding="async"></span>
+          <span class="proof-shot"><img src="assets/examples/proof-lifestyle-balcony.jpg" alt="Avatar lifestyle d'influence généré par IA" loading="lazy" decoding="async"></span>
         </div>
-
-        <div class="proof-case">
-          <h3>Scène, véhicule, personnage</h3>
-          <p>Garder la cohérence d'un décor et transformer la scène en contenu lifestyle crédible.</p>
-          <div class="proof-strip four">
-            <span class="proof-shot"><img src="assets/examples/proof-auto-base.jpg" alt="Référence automobile noire en décor urbain" loading="lazy" decoding="async"></span>
-            <span class="proof-shot"><img src="assets/examples/proof-auto-staged.jpg" alt="Scène automobile avec personnage ajouté" loading="lazy" decoding="async"></span>
-            <span class="proof-shot low"><img src="assets/examples/proof-lifestyle-vendome-a.jpg" alt="Déclinaison lifestyle automobile à Paris" loading="lazy" decoding="async"></span>
-            <span class="proof-shot low"><img src="assets/examples/proof-lifestyle-vendome-b.jpg" alt="Variation lifestyle automobile Place Vendôme" loading="lazy" decoding="async"></span>
-          </div>
-        </div>
-
-        <div class="proof-case">
-          <h3>Avatar et influence IA</h3>
-          <p>Construire des profils visuels constants: tenue, posture, lieu, lumière, narration.</p>
-          <div class="proof-strip three">
-            <span class="proof-shot top"><img src="assets/examples/proof-avatar-reference-hoodie.jpg" alt="Référence de tenue grise pour avatar ou influenceur IA" loading="lazy" decoding="async"></span>
-            <span class="proof-shot top"><img src="assets/examples/proof-avatar-reference-black.jpg" alt="Référence de tenue noire pour avatar ou influenceur IA" loading="lazy" decoding="async"></span>
-            <span class="proof-shot top"><img src="assets/examples/proof-lifestyle-balcony.jpg" alt="Exemple lifestyle balcon et décor mer pour contenu influence" loading="lazy" decoding="async"></span>
-          </div>
-        </div>
-
-        <div class="proof-meta"><span>format mobile</span><b>10 exemples compressés</b></div>
+        <a class="proof-cta" href="preuves.html">
+          Voir les 10 exemples en grand
+          <svg viewBox="0 0 24 24" fill="none" width="15" height="15"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
 
       <div class="more-wrap" id="more-gold">
