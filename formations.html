@@ -151,6 +151,9 @@
     .proof-cta:hover{background:rgba(220,193,135,.12);border-color:color-mix(in srgb,var(--gold) 55%,transparent);transform:translateY(-1px)}
     .proof-cta svg{transition:transform .18s}
     .proof-cta:hover svg{transform:translateX(3px)}
+    .proof-mini{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.075);
+      font-size:11.5px;line-height:1.45;color:var(--muted)}
+    .proof-mini b{color:#fff;font-weight:650}
     .proof-shot.top img{object-position:center top}
     .proof-shot.low img{object-position:center 72%}
     .proof-shot::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.36));pointer-events:none}
@@ -293,10 +296,11 @@
           <span class="proof-shot"><img src="assets/examples/proof-auto-staged.jpg" alt="Scène automobile mise en situation par IA" loading="lazy" decoding="async"></span>
           <span class="proof-shot"><img src="assets/examples/proof-lifestyle-balcony.jpg" alt="Avatar lifestyle d'influence généré par IA" loading="lazy" decoding="async"></span>
         </div>
-        <a class="proof-cta" href="preuves.html">
-          Voir les 10 exemples en grand
+        <a class="proof-cta" href="preuves.html#prompts">
+          Voir les exemples + prompts
           <svg viewBox="0 0 24 24" fill="none" width="15" height="15"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+        <p class="proof-mini"><b>Dans la formation :</b> prompts, réglages, correction d'erreurs, outils, puis transformation en contenu vendable.</p>
       </div>
 
       <div class="more-wrap" id="more-gold">
