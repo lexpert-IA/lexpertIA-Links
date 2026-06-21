@@ -13,7 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Académie Experts IA — Les accès</title>
-  <meta name="description" content="Deux accès à l'IA appliquée. Voici précisément ce que chacun débloque.">
+  <meta name="description" content="Le canal Telegram gratuit, et le niveau Expert pour bâtir tes propres systèmes IA.">
   <meta name="theme-color" content="#07080d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -254,6 +254,26 @@
     .rise.in{opacity:1;transform:none}
     @media (prefers-reduced-motion:reduce){.rise{opacity:1!important;transform:none!important}.exp-hint .pulse{animation:none}}
     .buy:focus-visible,.more-btn:focus-visible,.tg:focus-visible,.card.expert:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+    /* ===== LE RACCOURCI = carte canal Telegram (gratuit, porte d'entrée) ===== */
+    .tgcard{position:relative;isolation:isolate;background:linear-gradient(180deg,rgba(42,171,238,.10),rgba(11,12,20,.62));
+      padding:26px 24px;border-radius:22px;border:1px solid rgba(42,171,238,.42);
+      box-shadow:0 22px 60px rgba(0,0,0,.45),inset 0 0 44px rgba(42,171,238,.06)}
+    .tgcard .tg-badge{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tg);font-weight:700;margin-bottom:12px}
+    .tgcard .tg-badge svg{width:15px;height:15px}
+    .tgcard h2{font-family:var(--display);font-size:21px;font-weight:600;color:#fff;line-height:1.15;font-optical-sizing:auto}
+    .tgcard .free{display:inline-block;margin-left:7px;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--tg);border:1px solid rgba(42,171,238,.55);border-radius:999px;padding:2px 9px;vertical-align:middle}
+    .tgcard>p{color:var(--soft);font-size:13px;line-height:1.55;margin-top:11px}
+    .tgcard .tglist{list-style:none;margin:17px 0 0;display:flex;flex-direction:column;gap:11px}
+    .tgcard .tglist li{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45;color:var(--soft)}
+    .tgcard .tglist .ck{flex:0 0 auto;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;margin-top:2px;border:1px solid var(--tg);color:var(--tg);opacity:.85}
+    .tgcard .tglist .ck svg{width:9px;height:9px}
+    .tgcard .tglist b{color:#fff;font-weight:600}
+    .tgcard .tgbuy{position:relative;overflow:hidden;margin-top:20px;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;text-decoration:none;
+      font-family:var(--sans);font-weight:700;font-size:15.5px;color:#04121a;padding:16px 18px;border-radius:13px;
+      background:linear-gradient(135deg,#36b6f5,#2AABEE);box-shadow:0 12px 30px rgba(42,171,238,.32);transition:transform .2s,box-shadow .25s}
+    .tgcard .tgbuy:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(42,171,238,.5)}
+    .tgcard .tgbuy svg{width:18px;height:18px}
   </style>
 </head>
 <body>
@@ -271,72 +291,33 @@
 
   <header class="head rise">
     <div class="kicker">Académie Experts IA</div>
-    <h1>Deux niveaux. Une seule décision.</h1>
-    <p>Voici précisément ce que tu vas apprendre.</p>
+    <h1>Le raccourci est gratuit. Le niveau au&#8209;dessus, lui, se mérite.</h1>
+    <p>Le canal Telegram, c'est la porte d'entrée — gratuit, et c'est par là que tout passe : les méthodes, les bots, et l'accès à l'Expert quand tu seras prêt.</p>
   </header>
 
   <div class="offers">
 
-    <!-- ===== ACCÈS 1 — Le Raccourci IA (88€) — normal ===== -->
-    <section class="card gold rise" data-card="gold">
-      <div class="c-top">
-        <div>
-          <div class="c-name">Le Raccourci</div>
-          <div class="c-sub">Tout&#8209;en&#8209;1 pour créer, automatiser et monétiser avec l'IA — même en partant de zéro.</div>
-        </div>
-        <div class="price"><span class="now">88€</span><span class="old">147€</span><span class="unit">accès à vie</span>
-          <div class="seal"><span class="si">🎬</span><span class="sn">30h</span><span class="sl">de cours vidéo</span></div>
-        </div>
-      </div>
-
-      <ul class="list">
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Créer des <b>jeux vidéo</b> (2D &amp; 3D) avec l'IA.</span></li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Produire <b>vidéos &amp; visuels</b> de niveau pro.</span></li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Studio <b>son &amp; musique IA</b>, clone de voix.</span></li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Créer <b>ton influenceuse IA</b> — et la <b>monétiser</b>.</span></li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Des <b>agents qui produisent ton contenu 24/7</b>.</span></li>
-      </ul>
-
-      <div class="proof-lab" aria-label="Aperçu des exemples de production IA">
-        <div class="proof-head"><span>preuves de production</span><b>visuels, produit, influence</b></div>
-        <p class="proof-copy">Le rendu réel de la méthode : produit e-commerce, mise en scène avant/après, avatars d'influence.</p>
-        <div class="proof-teaser-grid">
-          <span class="proof-shot"><img src="assets/examples/proof-product-shoes.jpg" alt="Produit e-commerce généré par IA" loading="lazy" decoding="async"></span>
-          <span class="proof-shot"><img src="assets/examples/proof-auto-staged.jpg" alt="Scène automobile mise en situation par IA" loading="lazy" decoding="async"></span>
-          <span class="proof-shot"><img src="assets/examples/proof-lifestyle-balcony.jpg" alt="Avatar lifestyle d'influence généré par IA" loading="lazy" decoding="async"></span>
-        </div>
-        <a class="proof-cta" href="preuves.html#prompts">
-          Voir les exemples + prompts
-          <svg viewBox="0 0 24 24" fill="none" width="15" height="15"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <p class="proof-mini"><b>Dans la formation :</b> prompts, réglages, correction d'erreurs, outils, puis transformation en contenu vendable.</p>
-      </div>
-
-      <div class="more-wrap" id="more-gold">
-        <ul class="list">
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Travailler en <b>B2B</b> : produire des <b>services IA pour des entreprises</b> qui en ont besoin.</span></li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Cloner ta voix et ton visage</b> en quelques minutes.</span></li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Automatiser tes tâches répétitives</b> (mails, posts, montage…).</span></li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>+200 prompts &amp; workflows</b> prêts à copier-coller.</span></li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Accompagnement personnalisé</b> + communauté privée.</span></li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Accès à vie</b> + mises à jour incluses.</span></li>
-        </ul>
-      </div>
-      <button class="more-btn" data-more="more-gold" aria-expanded="false">
-        <span class="more-label">Afficher tout ce que ça débloque</span>
-        <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-
-      <a class="buy" href="checkout.html?f=raccourci">
-        Obtenir ma formation complète
-        <svg class="arr" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <div class="note">Paiement sécurisé · accès immédiat · à vie</div>
-      <a class="tg-link" href="https://t.me/lexpertIA" target="_blank" rel="noopener">
+    <!-- ===== LE RACCOURCI = le canal Telegram (gratuit, porte d'entrée vers tout) ===== -->
+    <section class="tgcard rise">
+      <span class="tg-badge">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.6 19.1c-.25 1.1-.92 1.37-1.86.85l-5.14-3.79-2.48 2.39c-.27.27-.5.5-1.03.5l.37-5.2L17.9 6.1c.4-.36-.09-.56-.62-.2L6.45 12.6l-5.07-1.58C.27 10.68.25 9.92 1.62 9.4l18.7-7.2c.92-.34 1.72.22 1.62 2.1Z"/></svg>
-        Pas encore décidé ? <b>Rejoins le Telegram gratuit</b>
+        Le Raccourci
+      </span>
+      <h2>Le canal Telegram<span class="free">GRATUIT</span></h2>
+      <p>Le vrai raccourci, c'est ici. Tu entres, tu prends le niveau — et <b>c'est par là que tu accèdes à tout le reste</b> : les méthodes, les <b>bots à l'achat direct</b>, et le niveau Expert quand tu seras prêt.</p>
+      <ul class="tglist">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Méthodes, prompts &amp; workflows IA <b>postés en continu</b>.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Les <b>bots dispo à l'achat direct</b> (arbitrage &amp; automation) — paiement en 1 message.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>La <b>porte d'entrée</b> vers le niveau Expert.</span></li>
+      </ul>
+      <a class="tgbuy" href="https://t.me/lexpertIA" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.6 19.1c-.25 1.1-.92 1.37-1.86.85l-5.14-3.79-2.48 2.39c-.27.27-.5.5-1.03.5l.37-5.2L17.9 6.1c.4-.36-.09-.56-.62-.2L6.45 12.6l-5.07-1.58C.27 10.68.25 9.92 1.62 9.4l18.7-7.2c.92-.34 1.72.22 1.62 2.1Z"/></svg>
+        Rejoindre le canal — gratuit
       </a>
     </section>
+
+    <!-- (ancienne carte Raccourci 88€ retirée — le canal Telegram la remplace) -->
+    
 
     <!-- ===== ACCÈS 2 — L'IA au niveau expert (998€) — révélé au survol ===== -->
     <section class="card expert rise" data-card="expert" tabindex="0">
@@ -366,6 +347,10 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Orchestration de bots finance &amp; trading</b>.</span></li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Agents autonomes</b> qui exécutent des tâches complètes sans supervision.</span></li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Fine-tuning &amp; RAG</b> sur tes propres données.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Ton IA déverrouillée, hébergée par toi</b> — accès total, zéro bridage externe.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>OSINT &amp; contre&#8209;traque</b> — recouper l'info en sources ouvertes, et te rendre introuvable.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>OPSEC &amp; anonymat opérationnel</b> — identités cloisonnées, chiffrement, traces minimales.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Scraping &amp; automation à grande échelle</b> — collecter et exploiter la donnée à la chaîne.</span></li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Accompagnement intensif</b> · places limitées.</span></li>
         </ul>
         <div class="resource">
@@ -378,7 +363,7 @@
         Rejoindre le niveau expert
         <svg class="arr" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <div class="note">Inclut tout « Le Raccourci — Tout-en-1 » · accompagnement intensif</div>
+      <div class="note">Le niveau au-dessus · accompagnement intensif · places limitées</div>
 
       <button type="button" class="contact-toggle" data-contact>Me contacter pour un accompagnement personnalisé</button>
       <!-- Web3Forms : l'email du destinataire N'EST PAS dans le code (seulement l'access_key public).
